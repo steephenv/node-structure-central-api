@@ -60,9 +60,13 @@ export const definitions = {
  sectionXXX: String,
  divisionXXX: String,
  unitXXX: String,
- statusXXX: String
-
-
+ statusXXX: String,
+ createdAt: Date,
+ updatedAt: Date,
+ createdBy:{
+  type: Schema.Types.ObjectId,
+  ref: 'User',
+ }
 };
 
 const userSchema: Schema = new Schema(definitions);

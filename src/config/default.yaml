@@ -8,7 +8,7 @@ app:
     accessTokenExpiryTime: 7d
 
 database:
-  url: mongodb://localhost:27017/miwago_test
+  url: mongodb://localhost:27017/cma-test
 
 docsUrl: "localhost:7000"
 
