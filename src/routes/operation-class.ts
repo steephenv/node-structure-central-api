@@ -9,7 +9,7 @@ import { Promise as BluePromise } from 'bluebird';
 
 export const create:RequestHandler = async (req, res, next) =>{
     try {
-        const resp = await BluePromise.map(req.body, async item => {
+        const resp = await BluePromise.map(req.body, async (item: any) => {
           // attach userId if not present
           if (!item.userId) {
             item.userId = res.locals.user ? res.locals.user.userId : null;
