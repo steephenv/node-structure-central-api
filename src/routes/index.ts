@@ -1,15 +1,14 @@
 import * as express from 'express';
 import { get as getConfig } from 'config';
+import { centralApis } from './central';
 
 // swagger
 import { swaggerSpec } from './swagger';
 
-import { rule } from './validators/basic-validator';
-import { mainOperations } from './operation-class';
 // create router
 export const apis = express.Router();
 
-apis.use('/api', mainOperations);
+apis.use('/central', centralApis);
 
 // load docs if requested
 if (getConfig('app.docs')) {
