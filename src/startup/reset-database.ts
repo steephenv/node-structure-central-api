@@ -4,7 +4,6 @@ import { Promise as BluePromise } from 'bluebird';
 import * as mongoose from 'mongoose';
 import { getMongooseConnectionPromise } from './db-init';
 
-
 import * as lme from 'lme';
 
 console.log('==========DB-RESET=ENVS================');
@@ -36,7 +35,6 @@ const resetDatabase = async (MONGO_URI?: string) => {
       process.exit(1);
     }
   }
-
 
   try {
     await mongoose.disconnect();
