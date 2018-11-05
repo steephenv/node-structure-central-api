@@ -4,7 +4,7 @@ describe('Test for signup functionality  ===> ', () => {
   it(
     'Registration Functionality',
     done => {
-      got('http://localhost:7000/v1/api', {
+      got('http://localhost:7000/v1/central/create', {
         method: 'POST',
         headers: {
           'X-Requested-With': 'XMLHttpRequest',
@@ -16,6 +16,7 @@ describe('Test for signup functionality  ===> ', () => {
           content: [
             {
               email: 'll@yopmail.com',
+              emailDiv: 'dfhjdgjh',
             },
           ],
         },
