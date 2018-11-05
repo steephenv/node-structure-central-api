@@ -8,7 +8,7 @@ const swaggerJSDoc = require('swagger-jsdoc'); // tslint:disable-line
 const options = {
   swaggerDefinition: {
     info: {
-      title: 'Capricorns API Docs',
+      title: 'CMA Backend',
       version: '1.0.0',
       description: '',
     },
