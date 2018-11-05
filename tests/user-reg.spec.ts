@@ -17,6 +17,11 @@ describe('Test for signup functionality  ===> ', () => {
             {
               email: 'll@yopmail.com',
               emailDiv: 'dfhjdgjh',
+              _options: {
+                skipIfExistingOnCondition: {
+                  email: 'll@yopmail.com',
+                },
+              },
             },
           ],
         },

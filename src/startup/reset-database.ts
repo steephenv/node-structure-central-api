@@ -22,9 +22,7 @@ const resetDatabase = async (MONGO_URI?: string) => {
 
   try {
     await BluePromise.all([
-      mongoose.connection.db
-        .dropCollection('businessfunctions')
-        .catch(errHandler),
+      mongoose.connection.db.dropCollection('users').catch(errHandler),
     ]);
   } catch (err) {
     if (err.code === 26 || err.message === 'ns not found') {

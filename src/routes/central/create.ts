@@ -11,7 +11,7 @@ import { Promise as BluePromise } from 'bluebird';
 
 export const createOperation: RequestHandler = async (req, res, next) => {
   try {
-    const resp = await BluePromise.map(req.body.content, async (item: any) => {
+    await BluePromise.map(req.body.content, async (item: any) => {
       // attach userId if not present
       if (!item.userId) {
         item.userId = res.locals.user ? res.locals.user.userId : null;
@@ -30,27 +30,21 @@ export const createOperation: RequestHandler = async (req, res, next) => {
           .count(_options.skipIfExistingOnCondition)
           .exec();
         if (isExisting) {
-          const isExistingResp = Object.assign(
-            {
-              _IS_EXISTING: true,
-              _DESCRIPTION:
-                'create skipped due to _options.skipIfExistingOnCondition',
-            },
-            item,
+          return next(
+            new RequestError(RequestErrorType.CONFLICT, 'User Existing'),
           );
-          return isExistingResp;
         }
       }
       item.createdAt = new Date();
       if (item.userId) {
         item.createdBy = item.userId;
       }
-      const createResp = await newCollection.create(item);
-      return createResp;
+      return await newCollection.create(item);
     });
-    return resp;
+    return res.status(201).send({
+      success: true,
+    });
   } catch (err) {
-    console.log(err);
     return next(new RequestError(RequestErrorType.INTERNAL_SERVER_ERROR, err));
   }
 };
