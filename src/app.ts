@@ -13,6 +13,7 @@ import {
   ExpressRequestErrorType,
 } from 'issue-maker';
 
+// import { attachTokenData } from './access-control/attach-token-data';
 import { rootAccess } from './access-control/root-access';
 
 // import {RequestError, RequestErrorType} from 'issue-maker/dist/src/error-types/express-request-error';
@@ -20,6 +21,8 @@ import { rootAccess } from './access-control/root-access';
 import { mongooseConnectionPromise, mongoose } from './db.init';
 
 export { mongoose, mongooseConnectionPromise }; // exporting for quick access in tests
+
+import { apis } from './routes';
 
 mongooseConnectionPromise
   .then(() => {
@@ -45,10 +48,6 @@ mongooseConnectionPromise
     );
     process.exit(1);
   });
-
-import { apis } from './routes';
-
-import { attachTokenData } from './access-control/attach-token-data';
 
 export const app = express();
 
@@ -78,7 +77,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/v1', attachTokenData, apis);
+app.use('/v1', apis);
 
 // test for err emails
 app.get('/send/cats/to/me/with/500', (req, res, next) =>
