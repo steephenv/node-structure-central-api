@@ -10,7 +10,7 @@ const user1 = new User({
 const user2 = new User({
   firstName: 'Bernad',
   lastName: 'Shah',
-  email: 'miwagoclient1@yopmail.com',
+  email: 'bernu@yopmail.com',
   password: '123456',
   role: 'Client',
 });
