@@ -12,10 +12,12 @@ import { Models } from '../../models';
 export const fetchOperation: RequestHandler = async (req, res, next) => {
   try {
     if (!req.body.collection) {
-      return res.status(422).send({
-        success: false,
-        msg: 'Invalid Parameters',
-      });
+      return next(
+        new RequestError(
+          RequestErrorType.BAD_REQUEST,
+          'Invalid collection name',
+        ),
+      );
     }
 
     req.body.condition = req.body.condition || {};
