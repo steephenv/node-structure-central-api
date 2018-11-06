@@ -62,4 +62,28 @@ describe('Test for signup functionality  ===> ', () => {
     },
     15000,
   );
+  it(
+    'Registration Functionality Update',
+    done => {
+      got('http://localhost:7000/v1/central/remove', {
+        method: 'POST',
+        headers: {
+          'X-Requested-With': 'XMLHttpRequest',
+        },
+        json: true,
+        body: {
+          collection: 'User',
+          operation: 'Remove',
+          condition: {
+            email: 'watson@yopmail.com',
+          },
+        },
+      })
+        .then(() => done())
+        .catch(err => {
+          throw err;
+        });
+    },
+    15000,
+  );
 });

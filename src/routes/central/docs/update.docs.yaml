@@ -1,0 +1,38 @@
+/central/update:
+  post:
+    # security:
+    # - Bearer: []
+    summary: api to register.
+    tags:
+    - Central
+    description: auth
+    parameters:
+    - name: X-Requested-With
+      description: set value to XMLHttpRequest if you are making an xhr request
+      in: header
+      required: true
+      default: XMLHttpRequest
+    - name: Body
+      in: body
+      required: true
+      schema:
+        type: object
+        required:
+        - collection
+        - operation
+        - content
+        - condition
+        - options
+        properties:
+          collection:
+            type: string
+            example: User
+          operation:
+            type: string
+            example: Save
+          content:
+            type: object
+            example:       
+    responses:
+      201:
+        description: "successful attempt, returns `success message`"

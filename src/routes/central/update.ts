@@ -11,7 +11,7 @@ import { Models } from '../../models';
 
 export const updateOperation: RequestHandler = async (req, res, next) => {
   try {
-    if (!req.body.condition || !req.body.content) {
+    if (!req.body.condition || !req.body.content || !req.body.collection) {
       return res.status(422).send({
         success: false,
         msg: 'Invalid Parameters',
