@@ -30,9 +30,7 @@ export const createOperation: RequestHandler = async (req, res, next) => {
           .count(_options.skipIfExistingOnCondition)
           .exec();
         if (isExisting) {
-          return next(
-            new RequestError(RequestErrorType.CONFLICT, 'User Existing'),
-          );
+          return next(new RequestError(RequestErrorType.CONFLICT));
         }
       }
       item.createdAt = new Date();
