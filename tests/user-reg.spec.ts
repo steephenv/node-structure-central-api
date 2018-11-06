@@ -15,11 +15,13 @@ describe('Test for signup functionality  ===> ', () => {
           operation: 'Save',
           content: [
             {
-              email: 'll@yopmail.com',
+              email: 'watson@yopmail.com',
               emailDiv: 'dfhjdgjh',
+              password: '123456',
+              role: 'User',
               _options: {
                 skipIfExistingOnCondition: {
-                  email: 'll@yopmail.com',
+                  email: 'watson@yopmail.com',
                 },
               },
             },
