@@ -3,6 +3,7 @@
 import { Promise as BluePromise } from 'bluebird';
 import * as mongoose from 'mongoose';
 import { getMongooseConnectionPromise } from './db-init';
+import { initUsers } from './users';
 
 import * as lme from 'lme';
 
@@ -32,6 +33,12 @@ const resetDatabase = async (MONGO_URI?: string) => {
       console.log(err);
       process.exit(1);
     }
+  }
+
+  try {
+    await BluePromise.all([initUsers()]);
+  } catch (err) {
+    console.log(err);
   }
 
   try {
