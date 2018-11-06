@@ -26,6 +26,7 @@ export const removeOperation: RequestHandler = async (req, res, next) => {
       msg: resp,
     });
   } catch (err) {
+    console.log(err);
     return next(new RequestError(RequestErrorType.BAD_REQUEST, err));
   }
 };

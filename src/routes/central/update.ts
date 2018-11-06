@@ -12,10 +12,9 @@ import { Models } from '../../models';
 export const updateOperation: RequestHandler = async (req, res, next) => {
   try {
     if (!req.body.condition || !req.body.content || !req.body.collection) {
-      return res.status(422).send({
-        success: false,
-        msg: 'Invalid Parameters',
-      });
+      return next(
+        new RequestError(RequestErrorType.BAD_REQUEST, 'Invalid Parameters'),
+      );
     }
     if (!req.body.options) {
       req.body.options = {};
@@ -37,6 +36,7 @@ export const updateOperation: RequestHandler = async (req, res, next) => {
       data: updatedData,
     });
   } catch (err) {
+    console.log(err);
     return next(new RequestError(RequestErrorType.BAD_REQUEST, err));
   }
 };
