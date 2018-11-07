@@ -1,13 +1,13 @@
 # development beta in cloud
 # used for internal use
 app: 
-  port: 6533
+  port: 4233
   docs: true
   morgan: true
 database:
-  url: mongodb://miwago_user:NBGVJHgjhg67uhgvjuuy5hjnv98jkhbBGbkjbhfgjhbkmjhb76hjv98bkjbnjmn@192.168.200.20:27017/miwago_db
+  url: mongodb://cma_user:hGFhju4ghf2GFD1jhgHGPvy62F@192.168.200.20:27017/cma_db
 
-docsUrl: "devapi-miwago.cubettech.in"
+docsUrl: "api-cma-qa.cubettech.in"
 
 frontEnd:
   web:
