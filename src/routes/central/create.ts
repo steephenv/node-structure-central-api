@@ -20,6 +20,8 @@ export const createOperation: RequestHandler = async (req, res, next) => {
         }
         const { _options } = item;
 
+        req.body.collection = req.body.collection.toLowerCase();
+
         const newCollection = Models[req.body.collection];
         delete item._options;
 
