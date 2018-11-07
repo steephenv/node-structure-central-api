@@ -19,6 +19,9 @@ export const updateOperation: RequestHandler = async (req, res, next) => {
     if (!req.body.options) {
       req.body.options = {};
     }
+
+    req.body.collection = req.body.collection.toLowerCase();
+
     const preparedCondition = prepareGQLQuery(req.body.condition);
     const preparedContent = prepareGQLQuery(req.body.content);
     const preparedOptions = prepareGQLQuery(req.body.options);

@@ -20,6 +20,8 @@ export const removeOperation: RequestHandler = async (req, res, next) => {
     let preparedQuery: any;
     preparedQuery = prepareGQLQuery(req.body.condition);
 
+    req.body.collection = req.body.collection.toLowerCase();
+
     const resp = await Models[req.body.collection].remove(preparedQuery).exec();
     return res.status(200).send({
       success: true,

@@ -16,6 +16,9 @@ export const basicValidator: RequestHandler = (req, res, next) => {
       });
     }
 
+    req.body.collection = req.body.collection.toLowerCase();
+    req.body.operation = req.body.operation.toLowerCase();
+
     const { schema, opn } = findRule(req.body.collection, req.body.operation);
 
     Joi.validate(req.body, schema, opn, err => {

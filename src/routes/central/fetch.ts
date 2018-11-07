@@ -19,6 +19,7 @@ export const fetchOperation: RequestHandler = async (req, res, next) => {
         ),
       );
     }
+    req.body.collection = req.body.collection.toLowerCase();
 
     req.body.condition = req.body.condition || {};
     req.body.attachments = req.body.attachments || [];
