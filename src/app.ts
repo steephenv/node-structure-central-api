@@ -66,8 +66,11 @@ app.use(
 // un-comment after placing your favicon in /public
 app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 
+import { UPLOAD_DIR } from './routes/utils/index';
+
 // root files. this need to set acl only for devs
 app.use('/root', rootAccess, express.static(path.join(__dirname, 'root')));
+app.use('/assets', express.static(UPLOAD_DIR));
 
 if (morganEnabled) {
   app.use(logger('dev'));
