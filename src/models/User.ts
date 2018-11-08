@@ -34,9 +34,9 @@ export const definitions = {
   unitEng: { type: String },
   statusEng: { type: String },
   role: {
-    type: String,
-    required: true,
-    default: 'User',
+    type: Schema.Types.ObjectId,
+    ref: 'Role',
+    comment: 'has the from `objectId[]`. objectId taken from `Role` collection',
   },
   password: {
     type: String,

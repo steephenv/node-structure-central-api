@@ -18,7 +18,7 @@ describe('Test for signup functionality  ===> ', () => {
               email: 'watson@yopmail.com',
               emailDiv: 'dfhjdgjh',
               password: '123456',
-              role: 'User',
+              role: '5be2c307c7311236010d35a2',
               _options: {
                 skipIfExistingOnCondition: {
                   email: 'watson@yopmail.com',
