@@ -1,0 +1,37 @@
+/utils/upload:
+  post:
+    # security:
+    # - Bearer: []
+    summary: api for file upload.
+    tags:
+    - Authentication
+    description: api for file upload.
+    parameters:
+    - name: X-Requested-With
+      description: set value to XMLHttpRequest if you are making an xhr request
+      in: header
+      required: true
+      default: XMLHttpRequest
+    - name: Content-Type
+      description: set value to multipart/form-data
+      in: header
+      required: true
+      default: multipart/form-data  
+    - name: relDir
+      description: ''
+      in: query
+    - name: Body
+      description: ''
+      in: body
+      required: true
+      schema:
+        type: object
+        required:
+        - file
+        properties:
+          username:
+            type: multipart/form-data
+            example: stark@marvel.com  
+    responses:
+      200:
+        description: "successful attempt, returns `success message`"
