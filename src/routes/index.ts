@@ -7,7 +7,6 @@ import { utils } from './utils';
 
 // swagger
 import { swaggerSpec } from './swagger';
-import { app } from '../app';
 
 // create router
 export const apis = express.Router();
