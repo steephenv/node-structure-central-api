@@ -52,6 +52,10 @@ export const definitions = {
   emailDiv: {
     type: String,
   },
+  isDelete: {
+    type: Boolean,
+    default: false,
+  },
   educationDiv: { type: String },
   houseAptDiv: { type: String },
   streetDiv: { type: String },

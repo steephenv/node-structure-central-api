@@ -48,7 +48,7 @@ describe('Test for signup functionality  ===> ', () => {
           collection: 'User',
           operation: 'Update',
           condition: {
-            email: 'watson@yopmail.com',
+            email: 'sherlock@yopmail.com',
           },
           content: {
             __set: { firstNameEng: 'Sherrrrlock' },
@@ -74,7 +74,7 @@ describe('Test for signup functionality  ===> ', () => {
         body: {
           collection: 'User',
           condition: {
-            email: 'watson@yopmail.com',
+            email: 'sherlock@yopmail.com',
           },
         },
       })
@@ -98,7 +98,7 @@ describe('Test for signup functionality  ===> ', () => {
           collection: 'User',
           operation: 'Remove',
           condition: {
-            email: 'watson@yopmail.com',
+            email: 'sherlock@yopmail.com',
           },
         },
       })
