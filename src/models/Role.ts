@@ -9,6 +9,10 @@ export const definitions = {
   displayNameDiv: { type: String, required: true },
   createdAt: { type: Date },
   updatedAt: { type: Date },
+  isDelete: {
+    type: Boolean,
+    default: false,
+  },
   createdBy: {
     type: Schema.Types.ObjectId,
     ref: 'User',

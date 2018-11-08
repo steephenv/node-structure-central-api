@@ -9,7 +9,7 @@ export const definitions = {
   middleNameEng: { type: String },
   lastNameEng: { type: String },
   commonNameEng: { type: String },
-  genderEng: { type: String },
+  gender: { type: String },
   nationalIdEng: { type: String },
   mobileEng: { type: String },
   email: {
@@ -46,7 +46,6 @@ export const definitions = {
   middleNameDiv: { type: String },
   lastNameDiv: { type: String },
   commonNameDiv: { type: String },
-  genderDiv: { type: String },
   nationalIdDiv: { type: String },
   mobileDiv: { type: String },
   emailDiv: {
