@@ -22,7 +22,7 @@ const storageC: any = multer.diskStorage({
     return cb(null, absDir);
   },
   filename: (req, file, cb) => {
-    cb(null, file.fieldname + '-' + new Date());
+    cb(null, file.fieldname + '-' + Date.now());
   },
 });
 
