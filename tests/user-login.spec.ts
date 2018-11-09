@@ -11,7 +11,7 @@ describe('Test for sign in functionality  ===> ', () => {
         },
         json: true,
         body: {
-          username: 'sherlock@yopmail.com',
+          username: 'bernu@yopmail.com',
           password: '123456',
         },
       })
