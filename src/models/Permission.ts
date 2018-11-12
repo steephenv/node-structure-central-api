@@ -4,7 +4,7 @@ import { model as mongooseModel, Schema } from 'mongoose';
 
 export const description = `For adding permissions`;
 export const definitions = {
-  permission: { type: String },
+  permissions: [{ type: String }],
 };
 
 const permissionSchema = new Schema(definitions);
