@@ -75,6 +75,24 @@
         "NODE_CONFIG": "{\\\"database\\\":{\\\"url\\\":\\\"mongodb://cma_user:hGFhju4ghf2GFD1jhgHGPvy62F@185.148.147.8:27018/cma_db\\\"}}",
         "NODE_APP_INSTANCE": "beta"
       }
+    },
+    {
+      "name": "App against staging server",
+      "type": "node",
+      "request": "launch",
+      "args": ["${workspaceRoot}/src/bin/www.ts"],
+      "runtimeArgs": ["--nolazy", "-r", "ts-node/register"],
+      "sourceMaps": true,
+      "cwd": "${workspaceRoot}",
+      "console": "integratedTerminal",
+      "protocol": "inspector",
+      "env": {
+        "NODE_CONFIG_DIR": "./src/config",
+        "TESTING": "true",
+        "NODE_ENV": "production",
+        "NODE_CONFIG": "{\\\"database\\\":{\\\"url\\\":\\\"mongodb://cma_user:hGFhju4ghf2GFD1jhgHGPvy62F@185.148.147.8:27018/cma-qa_db\\\"}}",
+        "NODE_APP_INSTANCE": "staging"
+      }
     }
   ]
 }

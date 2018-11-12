@@ -67,9 +67,9 @@ Staging(stagingapi-cma):
   script:
     # - yarn install
     # - yarn run build # cz it is running in unit test
-    - ssh cma@185.148.147.4 "rm -rf ~/cma-staging-api"
-    - ssh cma@185.148.147.4 "mkdir ~/cma-staging-api"
-    - rsync -avz -e ssh ./dist/src/* cma@185.148.147.4:~/cma-staging-api
-    - ssh cma@185.148.147.4 "export NODE_ENV=production && export PATH=/home/cma/bin:/home/cma/.local/bin:/home/cma/bin:/home/cma/.local/bin:/home/cma/.nvm/versions/node/v10.7.0/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/usr/lib/jvm/java-8-oracle/bin:/usr/lib/jvm/java-8-oracle/db/bin:/usr/lib/jvm/java-8-oracle/jre/bin && node --version && yarn --version && cd ~/cma-staging-api && yarn install && cd public && yarn install && pm2 restart cma-staging-api"
+    - ssh cma-dev@185.148.147.4 "rm -rf ~/cma-staging-api"
+    - ssh cma-dev@185.148.147.4 "mkdir ~/cma-staging-api"
+    - rsync -avz -e ssh ./dist/src/* cma-dev@185.148.147.4:~/cma-staging-api
+    - ssh cma-dev@185.148.147.4 "export NODE_ENV=production && export PATH=/home/cma/bin:/home/cma/.local/bin:/home/cma/bin:/home/cma/.local/bin:/home/cma/.nvm/versions/node/v10.7.0/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/usr/lib/jvm/java-8-oracle/bin:/usr/lib/jvm/java-8-oracle/db/bin:/usr/lib/jvm/java-8-oracle/jre/bin && node --version && yarn --version && cd ~/cma-staging-api && yarn install && cd public && yarn install && pm2 restart cma-staging-api"
   tags:
     - node
