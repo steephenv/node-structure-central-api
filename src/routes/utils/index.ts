@@ -22,11 +22,11 @@ const storageC: any = multer.diskStorage({
     const relDir = req.query.relDir || 'untitled';
     const absDir = pathJoin(UPLOAD_DIR, relDir);
 
-    // try {
-    await mkdirp(absDir);
-    // } catch (err) {
-    //   return next(new RequestError(RequestErrorType.LOGIN_FAILED, err));
-    // }
+    try {
+      await mkdirp(absDir);
+    } catch (err) {
+      throw new RequestError(RequestErrorType.LOGIN_FAILED, err);
+    }
 
     return cb(null, absDir);
   },
