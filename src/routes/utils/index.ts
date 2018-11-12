@@ -6,6 +6,11 @@ import { promisify } from 'bluebird';
 import * as userHome from 'user-home';
 import * as mkdirpCb from 'mkdirp';
 
+import {
+  RequestError,
+  RequestErrorType,
+} from '../../error-handler/RequestError';
+
 const mkdirp = promisify(mkdirpCb);
 
 export const utils = express.Router();
@@ -17,12 +22,17 @@ const storageC: any = multer.diskStorage({
     const relDir = req.query.relDir || 'untitled';
     const absDir = pathJoin(UPLOAD_DIR, relDir);
 
+    // try {
     await mkdirp(absDir);
+    // } catch (err) {
+    //   return next(new RequestError(RequestErrorType.LOGIN_FAILED, err));
+    // }
 
     return cb(null, absDir);
   },
   filename: (req, file, cb) => {
-    cb(null, file.fieldname + '-' + Date.now());
+    file.originalname = file.originalname.replace(/\s+/g, '-').toLowerCase();
+    cb(null, Date.now() + '-' + file.originalname);
   },
 });
 
