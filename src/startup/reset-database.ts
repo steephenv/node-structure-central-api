@@ -4,6 +4,7 @@ import { Promise as BluePromise } from 'bluebird';
 import * as mongoose from 'mongoose';
 import { getMongooseConnectionPromise } from './db-init';
 import { initUsers } from './users';
+import { initRoles } from './roles';
 
 import * as lme from 'lme';
 
@@ -24,6 +25,7 @@ const resetDatabase = async (MONGO_URI?: string) => {
   try {
     await BluePromise.all([
       mongoose.connection.db.dropCollection('users').catch(errHandler),
+      mongoose.connection.db.dropCollection('roles').catch(errHandler),
     ]);
   } catch (err) {
     if (err.code === 26 || err.message === 'ns not found') {
@@ -36,7 +38,7 @@ const resetDatabase = async (MONGO_URI?: string) => {
   }
 
   try {
-    await BluePromise.all([initUsers()]);
+    await BluePromise.all([initUsers(), initRoles()]);
   } catch (err) {
     console.log(err);
   }
