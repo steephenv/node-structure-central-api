@@ -11,7 +11,9 @@ import {
 export const login: RequestHandler = async (req, res, next) => {
   try {
     req.body.username = (req.body.username as string).toLowerCase();
-    const user: any = await User.findOne({ email: req.body.username }).exec();
+    const user: any = await User.findOne({ email: req.body.username })
+      .populate('role')
+      .exec();
     if (!user) {
       return next(
         new RequestError(RequestErrorType.LOGIN_FAILED, messages.noUser.ENG),
@@ -27,7 +29,7 @@ export const login: RequestHandler = async (req, res, next) => {
 
     const accessToken = await Jwt.sign({
       userId: user._id,
-      role: user.role,
+      role: user.role.role,
     });
 
     return res.status(200).send({
