@@ -27,6 +27,10 @@ export const login: RequestHandler = async (req, res, next) => {
       );
     }
 
+    if (!user.role) {
+      user.role = { role: 'User' };
+    }
+
     const accessToken = await Jwt.sign({
       userId: user._id,
       role: user.role.role,
