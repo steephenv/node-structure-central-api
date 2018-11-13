@@ -1,6 +1,7 @@
 import { arraySchema } from './create-user-rule';
 import { roleAddSchema } from './create-role-rule';
 import { permissionAddSchema } from './create-permission-rule';
+import { documentAddSchema } from './create-document-rule';
 
 export const schemaRules: any = {
   'user-save': { opn: { allowUnknown: true }, schema: arraySchema },
@@ -9,4 +10,5 @@ export const schemaRules: any = {
     opn: { allowUnknown: true },
     schema: permissionAddSchema,
   },
+  'document-save': { opn: { allowUnknown: true }, schema: documentAddSchema },
 };
