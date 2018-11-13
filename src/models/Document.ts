@@ -5,8 +5,8 @@ export const description = 'Stores details of uploaded documents info';
 
 export const definitions = {
   case: { type: Schema.Types.ObjectId, ref: 'CaseDetails', required: true },
-  docTitle: { type: String },
-  docUrl: { type: String },
+  docTitle: { type: String, required: true },
+  docUrl: { type: String, required: true },
   physicalLoc: { type: String },
   accessRights: [{ type: Schema.Types.ObjectId, ref: 'User' }],
   lastAccessBy: { type: Schema.Types.ObjectId, ref: 'User' },
