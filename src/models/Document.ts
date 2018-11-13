@@ -7,7 +7,7 @@ export const definitions = {
   case: { type: Schema.Types.ObjectId, ref: 'CaseDetails', required: true },
   docTitle: { type: String, required: true },
   docUrl: { type: String, required: true },
-  physicalLoc: { type: String },
+  physicalLoc: { type: Schema.Types.ObjectId, ref: 'Shelf' },
   accessRights: [{ type: Schema.Types.ObjectId, ref: 'User' }],
   lastAccessBy: { type: Schema.Types.ObjectId, ref: 'User' },
   accessLog: [
