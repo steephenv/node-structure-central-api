@@ -5,16 +5,16 @@ export const caseSchema = Joi.object().keys({
   caseTitle: Joi.string().required(),
   entryNumber: Joi.string().required(),
   courtCaseNumber: Joi.string().required(),
-  fileNos: Joi.string().required(),
-  previousCaseNumber: Joi.string().required(),
-  relatedCaseNumbers: Joi.array().required(),
+  fileNos: Joi.string().optional(),
+  previousCaseNumber: Joi.string().optional(),
+  relatedCaseNumbers: Joi.array().optional(),
   typeOfCase: Joi.string().required(),
   caseStatus: Joi.string().required(),
   jurisdictionOrCourt: Joi.string().required(),
-  submittedDate: Joi.date().required(),
-  formSubmittedDate: Joi.string().required(),
-  reportReceivedDate: Joi.string().required(),
-  finishedDate: Joi.string().required(),
+  submittedDate: Joi.date().optional(),
+  formSubmittedDate: Joi.string().optional(),
+  reportReceivedDate: Joi.string().optional(),
+  finishedDate: Joi.string().optional(),
 });
 
 export const caseAddSchema = Joi.object().keys({
