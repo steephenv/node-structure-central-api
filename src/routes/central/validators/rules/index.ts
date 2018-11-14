@@ -3,6 +3,7 @@ import { roleAddSchema } from './create-role-rule';
 import { permissionAddSchema } from './create-permission-rule';
 import { documentAddSchema } from './create-document-rule';
 import { shelfAddSchema } from './create-shelf-rule';
+import { caseAddSchema } from './create-case-rule';
 
 export const schemaRules: any = {
   'user-save': { opn: { allowUnknown: true }, schema: arraySchema },
@@ -16,4 +17,5 @@ export const schemaRules: any = {
     opn: { allowUnknown: true },
     schema: shelfAddSchema,
   },
+  'casedetails-save': { opn: { allowUnknown: true }, schema: caseAddSchema },
 };
