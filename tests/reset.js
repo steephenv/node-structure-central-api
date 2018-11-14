@@ -10,6 +10,6 @@ resetDB()
   .then(() => console.log('db reset complete'))
   .catch(err => {
     console.log(err);
-    console.log('---- force exiting ----');
+    console.log('---- force exiting -----');
     process.exit(1);
   });
