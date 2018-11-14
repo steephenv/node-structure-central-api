@@ -10,7 +10,7 @@ export const caseSchema = Joi.object().keys({
   relatedCaseNumbers: Joi.array().optional(),
   typeOfCase: Joi.string().required(),
   caseStatus: Joi.string().required(),
-  jurisdictionOrCourt: Joi.string().required(),
+  court: Joi.string().required(),
   submittedDate: Joi.date().optional(),
   formSubmittedDate: Joi.string().optional(),
   reportReceivedDate: Joi.string().optional(),

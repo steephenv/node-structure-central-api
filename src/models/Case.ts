@@ -13,7 +13,7 @@ export const definitions = {
   relatedCaseNumbers: [{ type: String }],
   typeOfCase: { type: String },
   caseStatus: { type: String },
-  jurisdictionOrCourt: { type: String },
+  court: { type: String },
   submittedDate: { type: Date },
   formSubmittedDate: { type: Date },
   reportReceivedDate: { type: Date },
