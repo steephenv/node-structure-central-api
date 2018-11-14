@@ -32,7 +32,6 @@ export const definitions = {
   sectionEng: { type: String },
   divisionEng: { type: String },
   unitEng: { type: String },
-  statusEng: { type: String },
   role: {
     type: Schema.Types.ObjectId,
     ref: 'Role',
@@ -70,7 +69,6 @@ export const definitions = {
   sectionDiv: { type: String },
   divisionDiv: { type: String },
   unitDiv: { type: String },
-  statusDiv: { type: String },
   createdAt: { type: Date },
   updatedAt: { type: Date },
   createdBy: {
