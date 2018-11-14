@@ -7,7 +7,7 @@ export const definitions = {
   name: { type: String },
   location: { type: String },
   room: { type: String },
-  capacity: { type: String },
+  capacity: { type: Number },
   createdAt: { type: Date },
   updatedAt: { type: Date },
   isDelete: {
