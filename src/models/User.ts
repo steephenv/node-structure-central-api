@@ -48,6 +48,7 @@ export const definitions = {
   commonNameDiv: { type: String },
   nationalIdDiv: { type: String },
   mobileDiv: { type: String },
+  status: { type: String },
   emailDiv: {
     type: String,
   },

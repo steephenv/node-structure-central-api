@@ -4,6 +4,7 @@ import { get as getConfig } from 'config';
 import { centralApis } from './central';
 import { user } from './user';
 import { utils } from './utils';
+import { getIslands } from './get-islands';
 
 // swagger
 import { swaggerSpec } from './swagger';
@@ -14,6 +15,7 @@ export const apis = express.Router();
 apis.use('/central', centralApis);
 apis.use('/user', user);
 apis.use('/utils', utils);
+apis.get('/get-islands', getIslands);
 
 // load docs if requested
 if (getConfig('app.docs')) {
