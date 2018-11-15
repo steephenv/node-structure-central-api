@@ -1,9 +1,15 @@
 import * as Joi from 'joi';
 // tslint:disable:variable-name
 export const roleSchema = Joi.object().keys({
-  role: Joi.string().required(),
-  displayNameDiv: Joi.string().required(),
-  displayNameEng: Joi.string().required(),
+  role: Joi.string()
+    .trim()
+    .required(),
+  displayNameDiv: Joi.string()
+    .trim()
+    .required(),
+  displayNameEng: Joi.string()
+    .trim()
+    .required(),
 });
 
 export const roleAddSchema = Joi.object().keys({

@@ -1,11 +1,21 @@
 import * as Joi from 'joi';
 // tslint:disable:variable-name
 export const documentSchema = Joi.object().keys({
-  case: Joi.string().required(),
-  docTitle: Joi.string().required(),
-  docUrl: Joi.string().required(),
-  physicalLoc: Joi.string().optional(),
-  lastAccessBy: Joi.string().optional(),
+  case: Joi.string()
+    .trim()
+    .required(),
+  docTitle: Joi.string()
+    .trim()
+    .required(),
+  docUrl: Joi.string()
+    .trim()
+    .required(),
+  physicalLoc: Joi.string()
+    .trim()
+    .optional(),
+  lastAccessBy: Joi.string()
+    .trim()
+    .optional(),
   accessRights: Joi.array().optional(),
   accessLog: Joi.array().optional(),
 });

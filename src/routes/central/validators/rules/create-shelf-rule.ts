@@ -1,9 +1,15 @@
 import * as Joi from 'joi';
 // tslint:disable:variable-name
 export const shelfSchema = Joi.object().keys({
-  shelfTitle: Joi.string().required(),
-  location: Joi.string().required(),
-  room: Joi.string().required(),
+  shelfTitle: Joi.string()
+    .trim()
+    .required(),
+  location: Joi.string()
+    .trim()
+    .required(),
+  room: Joi.string()
+    .trim()
+    .required(),
   capacity: Joi.number().required(),
 });
 

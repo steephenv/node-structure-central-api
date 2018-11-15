@@ -1,9 +1,15 @@
 import * as Joi from 'joi';
 // tslint:disable:variable-name
 const userRegSchema = Joi.object().keys({
-  email: Joi.string().required(),
-  role: Joi.string().required(),
-  password: Joi.string().required(),
+  email: Joi.string()
+    .trim()
+    .required(),
+  role: Joi.string()
+    .trim()
+    .required(),
+  password: Joi.string()
+    .trim()
+    .required(),
 });
 
 export const arraySchema = Joi.object().keys({
