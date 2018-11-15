@@ -4,7 +4,7 @@ import { model as mongooseModel, Schema } from 'mongoose';
 export const description = 'Stores details of shelf';
 
 export const definitions = {
-  name: { type: String },
+  shelfTitle: { type: String },
   location: { type: String },
   room: { type: String },
   capacity: { type: Number },
