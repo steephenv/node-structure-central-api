@@ -10,6 +10,7 @@ export const definitions = {
   physicalLoc: { type: Schema.Types.ObjectId, ref: 'Shelf' },
   accessRights: [{ type: Schema.Types.ObjectId, ref: 'User' }],
   lastAccessBy: { type: Schema.Types.ObjectId, ref: 'User' },
+  fileType: { type: String },
   accessLog: [
     {
       takenDate: { type: Date },
