@@ -4,6 +4,7 @@ import { permissionAddSchema } from './create-permission-rule';
 import { documentAddSchema } from './create-document-rule';
 import { shelfAddSchema } from './create-shelf-rule';
 import { caseAddSchema } from './create-case-rule';
+import { leaveTypeAddSchema } from './create-leavetype-rule';
 
 export const schemaRules: any = {
   'user-save': { opn: { allowUnknown: true }, schema: arraySchema },
@@ -18,4 +19,5 @@ export const schemaRules: any = {
     schema: shelfAddSchema,
   },
   'casedetails-save': { opn: { allowUnknown: true }, schema: caseAddSchema },
+  'leavetype-save': { opn: { allowUnknown: true }, schema: leaveTypeAddSchema },
 };
