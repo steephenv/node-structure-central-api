@@ -1,7 +1,7 @@
 import * as Joi from 'joi';
 // tslint:disable:variable-name
 export const caseParticipantRoleRuleSchema = Joi.object().keys({
-  caseHearingType: Joi.string().required(),
+  caseParticipantRole: Joi.string().required(),
 });
 
 export const caseParticipantRoleAddSchema = Joi.object().keys({
