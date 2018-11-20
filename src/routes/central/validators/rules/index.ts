@@ -11,6 +11,7 @@ import { docTypeAddSchema } from './create-doctype-rule';
 import { departmentAddSchema } from './create-department-rule';
 import { salutationAddSchema } from './create-salutation-rule';
 import { caseTypeAddSchema } from './create-casetype-rule';
+import { caseStatusAddSchema } from './create-casestatus-rule';
 
 export const schemaRules: any = {
   'user-save': { opn: { allowUnknown: true }, schema: arraySchema },
@@ -38,4 +39,8 @@ export const schemaRules: any = {
     schema: salutationAddSchema,
   },
   'casetype-save': { opn: { allowUnknown: true }, schema: caseTypeAddSchema },
+  'casestatus-save': {
+    opn: { allowUnknown: true },
+    schema: caseStatusAddSchema,
+  },
 };
