@@ -6,6 +6,7 @@ import { Permission as permission } from './Permission';
 import { CaseDetails as casedetails } from './Case';
 import { Document as document } from './Document';
 import { Shelf as shelf } from './Shelf';
+import { Holiday as holiday } from './Holiday';
 
 export const Models: { [key: string]: typeof AppData } = {
   user,
@@ -14,4 +15,5 @@ export const Models: { [key: string]: typeof AppData } = {
   casedetails,
   document,
   shelf,
+  holiday,
 };
