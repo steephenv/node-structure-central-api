@@ -9,6 +9,7 @@ import { Shelf as shelf } from './Shelf';
 import { Holiday as holiday } from './Holiday';
 import { LeaveType as leavetype } from './LeaveTypes';
 import { Leave as leave } from './Leave';
+import { DocType as doctype } from './DocType';
 
 export const Models: { [key: string]: typeof AppData } = {
   user,
@@ -20,4 +21,5 @@ export const Models: { [key: string]: typeof AppData } = {
   holiday,
   leavetype,
   leave,
+  doctype,
 };
