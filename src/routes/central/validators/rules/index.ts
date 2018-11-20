@@ -12,6 +12,7 @@ import { departmentAddSchema } from './create-department-rule';
 import { salutationAddSchema } from './create-salutation-rule';
 import { caseTypeAddSchema } from './create-casetype-rule';
 import { caseStatusAddSchema } from './create-casestatus-rule';
+import { caseHearingTypeRuleSchemaAddSchema } from './create-casehearingtype-rule';
 
 export const schemaRules: any = {
   'user-save': { opn: { allowUnknown: true }, schema: arraySchema },
@@ -42,5 +43,9 @@ export const schemaRules: any = {
   'casestatus-save': {
     opn: { allowUnknown: true },
     schema: caseStatusAddSchema,
+  },
+  'casehearingtype-save': {
+    opn: { allowUnknown: true },
+    schema: caseHearingTypeRuleSchemaAddSchema,
   },
 };

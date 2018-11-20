@@ -14,6 +14,7 @@ import { Department as department } from './Department';
 import { Salutation as salutation } from './Salutation';
 import { CaseType as casetype } from './CaseTypes';
 import { CaseStatus as casestatus } from './CaseStatus';
+import { CaseHearingType as casehearingtype } from './CaseHearingTypes';
 
 export const Models: { [key: string]: typeof AppData } = {
   user,
@@ -30,4 +31,5 @@ export const Models: { [key: string]: typeof AppData } = {
   salutation,
   casetype,
   casestatus,
+  casehearingtype,
 };
