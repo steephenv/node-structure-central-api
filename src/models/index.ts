@@ -6,6 +6,7 @@ import { Permission as permission } from './Permission';
 import { CaseDetails as casedetails } from './Case';
 import { Document as document } from './Document';
 import { Shelf as shelf } from './Shelf';
+import { Holiday as holiday } from './Holiday';
 import { LeaveType as leavetype } from './LeaveTypes';
 
 export const Models: { [key: string]: typeof AppData } = {
@@ -15,5 +16,6 @@ export const Models: { [key: string]: typeof AppData } = {
   casedetails,
   document,
   shelf,
+  holiday,
   leavetype,
 };
