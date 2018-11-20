@@ -12,6 +12,7 @@ import { Leave as leave } from './Leave';
 import { DocType as doctype } from './DocType';
 import { Department as department } from './Department';
 import { Salutation as salutation } from './Salutation';
+import { CaseType as casetype } from './CaseTypes';
 
 export const Models: { [key: string]: typeof AppData } = {
   user,
@@ -26,4 +27,5 @@ export const Models: { [key: string]: typeof AppData } = {
   doctype,
   department,
   salutation,
+  casetype,
 };
