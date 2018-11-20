@@ -9,10 +9,6 @@ export const definitions = {
   startDate: { type: Date },
   endDate: { type: Date },
   comment: { type: String },
-  isDelete: {
-    type: Boolean,
-    default: false,
-  },
   createdBy: {
     type: Schema.Types.ObjectId,
     ref: 'User',
@@ -20,5 +16,7 @@ export const definitions = {
 };
 
 const leaveSchema: Schema = new Schema(definitions);
+
+leaveSchema.index({ userId: 1, startDate: 1, endDate: 1 }, { unique: true });
 
 export const Leave = mongooseModel('Leave', leaveSchema);

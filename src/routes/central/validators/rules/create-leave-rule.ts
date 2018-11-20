@@ -5,7 +5,7 @@ export const leaveRuleSchema = Joi.object().keys({
   userId: Joi.string().required(),
   startDate: Joi.date().required(),
   endDate: Joi.date().required(),
-  comment: Joi.date().optional(),
+  comment: Joi.string().optional(),
 });
 
 export const leaveAddSchema = Joi.object().keys({

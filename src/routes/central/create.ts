@@ -24,7 +24,6 @@ export const createOperation: RequestHandler = async (req, res, next) => {
 
         const newCollection = Models[req.body.collection];
         delete item._options;
-
         if (
           _options &&
           _options.skipIfExistingOnCondition &&
@@ -34,7 +33,7 @@ export const createOperation: RequestHandler = async (req, res, next) => {
             .count(_options.skipIfExistingOnCondition)
             .exec();
           if (isExisting) {
-            return next(new RequestError(RequestErrorType.CONFLICT));
+            throw new RequestError(RequestErrorType.CONFLICT);
           }
         }
         item.createdAt = new Date();
@@ -50,6 +49,9 @@ export const createOperation: RequestHandler = async (req, res, next) => {
     });
   } catch (err) {
     console.log(err);
+    if (err.statusCode === 409) {
+      return next(new RequestError(RequestErrorType.CONFLICT));
+    }
     return next(new RequestError(RequestErrorType.BAD_REQUEST, err));
   }
 };
