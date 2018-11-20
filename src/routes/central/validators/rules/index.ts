@@ -9,6 +9,7 @@ import { leaveTypeAddSchema } from './create-leavetype-rule';
 import { leaveAddSchema } from './create-leave-rule';
 import { docTypeAddSchema } from './create-doctype-rule';
 import { departmentAddSchema } from './create-department-rule';
+import { salutationAddSchema } from './create-salutation-rule';
 
 export const schemaRules: any = {
   'user-save': { opn: { allowUnknown: true }, schema: arraySchema },
@@ -30,5 +31,9 @@ export const schemaRules: any = {
   'department-save': {
     opn: { allowUnknown: true },
     schema: departmentAddSchema,
+  },
+  'salutation-save': {
+    opn: { allowUnknown: true },
+    schema: salutationAddSchema,
   },
 };
