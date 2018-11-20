@@ -7,6 +7,8 @@ import { caseAddSchema } from './create-case-rule';
 import { holidayAddSchema } from './create-holiday-rule';
 import { leaveTypeAddSchema } from './create-leavetype-rule';
 import { leaveAddSchema } from './create-leave-rule';
+import { docTypeAddSchema } from './create-doctype-rule';
+import { departmentAddSchema } from './create-department-rule';
 
 export const schemaRules: any = {
   'user-save': { opn: { allowUnknown: true }, schema: arraySchema },
@@ -24,4 +26,9 @@ export const schemaRules: any = {
   'holiday-save': { opn: { allowUnknown: true }, schema: holidayAddSchema },
   'leavetype-save': { opn: { allowUnknown: true }, schema: leaveTypeAddSchema },
   'leave-save': { opn: { allowUnknown: true }, schema: leaveAddSchema },
+  'doctype-save': { opn: { allowUnknown: true }, schema: docTypeAddSchema },
+  'department-save': {
+    opn: { allowUnknown: true },
+    schema: departmentAddSchema,
+  },
 };
