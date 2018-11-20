@@ -9,15 +9,15 @@ export const ObjectScalarType = new GraphQLScalarType({
     return typeof value === 'object'
       ? value
       : typeof value === 'string'
-        ? JSON.parse(value)
-        : null;
+      ? JSON.parse(value)
+      : null;
   },
   serialize: value => {
     return typeof value === 'object'
       ? value
       : typeof value === 'string'
-        ? JSON.parse(value)
-        : null;
+      ? JSON.parse(value)
+      : null;
   },
   parseLiteral: ast => {
     switch (ast.kind) {
