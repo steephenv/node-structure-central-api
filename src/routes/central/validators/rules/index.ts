@@ -10,6 +10,10 @@ import { leaveAddSchema } from './create-leave-rule';
 import { docTypeAddSchema } from './create-doctype-rule';
 import { departmentAddSchema } from './create-department-rule';
 import { salutationAddSchema } from './create-salutation-rule';
+import { caseTypeAddSchema } from './create-casetype-rule';
+import { caseStatusAddSchema } from './create-casestatus-rule';
+import { caseHearingTypeRuleSchemaAddSchema } from './create-casehearingtype-rule';
+import { caseParticipantRoleAddSchema } from './create-caseparticipantrole-rule';
 
 export const schemaRules: any = {
   'user-save': { opn: { allowUnknown: true }, schema: arraySchema },
@@ -35,5 +39,18 @@ export const schemaRules: any = {
   'salutation-save': {
     opn: { allowUnknown: true },
     schema: salutationAddSchema,
+  },
+  'casetype-save': { opn: { allowUnknown: true }, schema: caseTypeAddSchema },
+  'casestatus-save': {
+    opn: { allowUnknown: true },
+    schema: caseStatusAddSchema,
+  },
+  'casehearingtype-save': {
+    opn: { allowUnknown: true },
+    schema: caseHearingTypeRuleSchemaAddSchema,
+  },
+  'caseparticipantrole-save': {
+    opn: { allowUnknown: true },
+    schema: caseParticipantRoleAddSchema,
   },
 };
