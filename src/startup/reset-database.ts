@@ -5,6 +5,7 @@ import * as mongoose from 'mongoose';
 import { getMongooseConnectionPromise } from './db-init';
 import { initUsers } from './users';
 import { initRoles } from './roles';
+// import { initAtolls } from './add-atoll';
 
 import * as lme from 'lme';
 
@@ -26,6 +27,7 @@ const resetDatabase = async (MONGO_URI?: string) => {
     await BluePromise.all([
       mongoose.connection.db.dropCollection('users').catch(errHandler),
       mongoose.connection.db.dropCollection('roles').catch(errHandler),
+      mongoose.connection.db.dropCollection('atolls').catch(errHandler),
     ]);
   } catch (err) {
     if (err.code === 26 || err.message === 'ns not found') {
