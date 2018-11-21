@@ -4,7 +4,7 @@ import { model as mongooseModel, Schema } from 'mongoose';
 export const description = 'Stores document type and details';
 
 export const definitions = {
-  docType: { type: String, required: true, unique: true },
+  docType: { type: String, required: true },
   isDelete: {
     type: Boolean,
     default: false,
