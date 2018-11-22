@@ -5,7 +5,7 @@ import * as mongoose from 'mongoose';
 import { getMongooseConnectionPromise } from './db-init';
 import { initUsers } from './users';
 import { initRoles } from './roles';
-// import { initAtolls } from './add-atoll';
+import { initAtolls } from './add-atoll';
 
 import * as lme from 'lme';
 
@@ -40,7 +40,7 @@ const resetDatabase = async (MONGO_URI?: string) => {
   }
 
   try {
-    await BluePromise.all([initUsers(), initRoles()]);
+    await BluePromise.all([initUsers(), initRoles(), initAtolls()]);
   } catch (err) {
     console.log(err);
   }

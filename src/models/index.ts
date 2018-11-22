@@ -17,6 +17,8 @@ import { CaseStatus as casestatus } from './CaseStatus';
 import { CaseHearingType as casehearingtype } from './CaseHearingTypes';
 import { CaseParticipantRole as caseparticipantrole } from './CaseParticipantsRole';
 import { DepartmentSection as departmentsection } from './DepartmentSection';
+import { Atoll as atoll } from './Atoll';
+import { Island as island } from './Island';
 
 export const Models: { [key: string]: typeof AppData } = {
   user,
@@ -36,4 +38,6 @@ export const Models: { [key: string]: typeof AppData } = {
   casehearingtype,
   caseparticipantrole,
   departmentsection,
+  atoll,
+  island,
 };
