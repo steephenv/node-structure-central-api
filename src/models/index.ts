@@ -16,6 +16,7 @@ import { CaseType as casetype } from './CaseTypes';
 import { CaseStatus as casestatus } from './CaseStatus';
 import { CaseHearingType as casehearingtype } from './CaseHearingTypes';
 import { CaseParticipantRole as caseparticipantrole } from './CaseParticipantsRole';
+import { DepartmentSection as departmentsection } from './DepartmentSection';
 
 export const Models: { [key: string]: typeof AppData } = {
   user,
@@ -34,4 +35,5 @@ export const Models: { [key: string]: typeof AppData } = {
   casestatus,
   casehearingtype,
   caseparticipantrole,
+  departmentsection,
 };
