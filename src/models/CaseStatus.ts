@@ -4,7 +4,7 @@ import { model as mongooseModel, Schema } from 'mongoose';
 export const description = 'Stores case status and details';
 
 export const definitions = {
-  caseStatus: { type: String, required: true, unique: true },
+  caseStatus: { type: String, required: true },
   isDelete: {
     type: Boolean,
     default: false,

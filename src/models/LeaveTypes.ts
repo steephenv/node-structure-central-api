@@ -4,7 +4,7 @@ import { model as mongooseModel, Schema } from 'mongoose';
 export const description = 'Stores leave type and details';
 
 export const definitions = {
-  leaveTitle: { type: String, required: true, unique: true },
+  leaveTitle: { type: String, required: true },
   numberOfDays: { type: Number },
   isDelete: {
     type: Boolean,

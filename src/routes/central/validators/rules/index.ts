@@ -14,6 +14,7 @@ import { caseTypeAddSchema } from './create-casetype-rule';
 import { caseStatusAddSchema } from './create-casestatus-rule';
 import { caseHearingTypeRuleSchemaAddSchema } from './create-casehearingtype-rule';
 import { caseParticipantRoleAddSchema } from './create-caseparticipantrole-rule';
+import { departSectionAddSchema } from './create-departmentsection-rule';
 
 export const schemaRules: any = {
   'user-save': { opn: { allowUnknown: true }, schema: arraySchema },
@@ -52,5 +53,9 @@ export const schemaRules: any = {
   'caseparticipantrole-save': {
     opn: { allowUnknown: true },
     schema: caseParticipantRoleAddSchema,
+  },
+  'departmentsection-save': {
+    opn: { allowUnknown: true },
+    schema: departSectionAddSchema,
   },
 };

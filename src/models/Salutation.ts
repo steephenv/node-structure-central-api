@@ -4,7 +4,7 @@ import { model as mongooseModel, Schema } from 'mongoose';
 export const description = 'Stores salutation type';
 
 export const definitions = {
-  salutation: { type: String, required: true, unique: true },
+  salutation: { type: String, required: true },
   isDelete: {
     type: Boolean,
     default: false,

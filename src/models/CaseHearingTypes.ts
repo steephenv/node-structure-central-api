@@ -4,7 +4,7 @@ import { model as mongooseModel, Schema } from 'mongoose';
 export const description = 'Stores case hearing type and details';
 
 export const definitions = {
-  caseHearingType: { type: String, required: true, unique: true },
+  caseHearingType: { type: String, required: true },
   isDelete: {
     type: Boolean,
     default: false,
