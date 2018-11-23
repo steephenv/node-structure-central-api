@@ -5,7 +5,7 @@ export const description = 'Stores details of role info';
 
 export const definitions = {
   role: { type: String, unique: true, required: true },
-  displayNameEng: { type: String, required: true },
+  displayName: { type: String, required: true },
   displayNameDiv: { type: String, required: true },
   createdAt: { type: Date },
   updatedAt: { type: Date },
