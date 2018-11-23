@@ -5,9 +5,9 @@ export const description = 'Stores details of atoll.';
 
 export const definitions = {
   officialName: { type: String, unique: true, required: true },
-  officialNameDiv: { type: String, unique: true, required: true },
+  officialNameDiv: { type: String },
   commonName: { type: String, required: true },
-  commonNameDiv: { type: String, required: true },
+  commonNameDiv: { type: String },
   noOfIslands: { type: Number, required: true },
   isDelete: {
     type: Boolean,
