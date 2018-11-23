@@ -1,0 +1,40 @@
+match /users/records {
+    allow update: if {
+        isSelfRecord();
+        userIsAdmin();
+        userIsDev();         
+    }
+}
+
+isSelfRecord(){
+    return resource.data.userId == req.user.userId;
+}
+
+userIsAdmin(){
+
+}
+
+userIsDev(){
+    
+}
+
+
+"acl": { 
+    "$elemMatch": {
+         "name": "view",
+        "userId": "5bf67c6254bea036413a09ce"
+    }
+  }
+
+
+
+{
+    "collection": "user",
+    "acl": [
+        {
+            "name": "view",
+            "userId": ["5bf67c6254bea036413a09ce"],
+            "roles": ["admin"]
+        }
+    ]
+}

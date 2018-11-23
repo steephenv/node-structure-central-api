@@ -5,6 +5,7 @@ export const description = 'Stores details of islands.';
 
 export const definitions = {
   islandName: { type: String, unique: true, required: true },
+  islandNameDiv: { type: String, unique: true, required: true },
   atollId: { type: Schema.Types.ObjectId, ref: 'Atoll' },
   isDelete: {
     type: Boolean,

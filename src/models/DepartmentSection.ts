@@ -5,6 +5,7 @@ export const description = 'Stores document section name and details';
 
 export const definitions = {
   sectionName: { type: String, required: true },
+  sectionNameDiv: { type: String, required: true },
   departmentId: {
     type: Schema.Types.ObjectId,
     ref: 'Department',
