@@ -7,7 +7,7 @@ export const roleSchema = Joi.object().keys({
   displayNameDiv: Joi.string()
     .trim()
     .required(),
-  displayNameEng: Joi.string()
+  displayName: Joi.string()
     .trim()
     .required(),
 });

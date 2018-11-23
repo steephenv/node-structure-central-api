@@ -3,13 +3,13 @@ import { Promise as BluePromise } from 'bluebird';
 
 const role1 = new Role({
   role: 'User',
-  displayNameEng: 'User',
+  displayName: 'User',
   displayNameDiv: 'User',
 });
 
 const role2 = new Role({
   role: 'Council',
-  displayNameEng: 'Council',
+  displayName: 'Council',
   displayNameDiv: 'Council',
 });
 
