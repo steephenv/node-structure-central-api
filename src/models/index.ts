@@ -19,6 +19,8 @@ import { CaseParticipantRole as caseparticipantrole } from './CaseParticipantsRo
 import { DepartmentSection as departmentsection } from './DepartmentSection';
 import { Atoll as atoll } from './Atoll';
 import { Island as island } from './Island';
+import { Contact as contact } from './Contacts';
+import { Task as task } from './Task';
 
 export const Models: { [key: string]: typeof AppData } = {
   user,
@@ -40,4 +42,6 @@ export const Models: { [key: string]: typeof AppData } = {
   departmentsection,
   atoll,
   island,
+  contact,
+  task,
 };
