@@ -15,6 +15,8 @@ import { caseStatusAddSchema } from './create-casestatus-rule';
 import { caseHearingTypeRuleSchemaAddSchema } from './create-casehearingtype-rule';
 import { caseParticipantRoleAddSchema } from './create-caseparticipantrole-rule';
 import { departSectionAddSchema } from './create-departmentsection-rule';
+import { contactAddSchema } from './create-contact-rule';
+import { taskAddSchema } from './create-task-rule';
 
 export const schemaRules: any = {
   'user-save': { opn: { allowUnknown: true }, schema: arraySchema },
@@ -57,5 +59,13 @@ export const schemaRules: any = {
   'departmentsection-save': {
     opn: { allowUnknown: true },
     schema: departSectionAddSchema,
+  },
+  'contact-save': {
+    opn: { allowUnknown: true },
+    schema: contactAddSchema,
+  },
+  'task-save': {
+    opn: { allowUnknown: true },
+    schema: taskAddSchema,
   },
 };
