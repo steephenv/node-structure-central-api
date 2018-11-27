@@ -18,6 +18,21 @@ export const definitions = {
   formSubmittedDate: { type: Date },
   reportReceivedDate: { type: Date },
   finishedDate: { type: Date },
+  caseParticipants: [
+    {
+      status: { type: String },
+      party: { type: String },
+      role: { type: String },
+    },
+  ],
+  caseStaffs: [
+    {
+      attorney: { type: Schema.Types.ObjectId, ref: 'User' },
+      role: { type: String },
+      status: { type: String },
+      assignedBy: { type: Date },
+    },
+  ],
   createdAt: { type: Date },
   updatedAt: { type: Date },
   isDelete: {
