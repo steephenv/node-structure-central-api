@@ -5,6 +5,7 @@ export const description = 'Stores case hearing type and details';
 
 export const definitions = {
   caseHearingType: { type: String, required: true },
+  caseHearingTypeDiv: { type: String, required: true },
   isDelete: {
     type: Boolean,
     default: false,

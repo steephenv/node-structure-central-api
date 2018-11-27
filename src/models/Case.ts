@@ -14,6 +14,7 @@ export const definitions = {
   typeOfCase: { type: String },
   caseStatus: { type: String },
   court: { type: String },
+  courtDiv: { type: String },
   submittedDate: { type: Date },
   formSubmittedDate: { type: Date },
   reportReceivedDate: { type: Date },
