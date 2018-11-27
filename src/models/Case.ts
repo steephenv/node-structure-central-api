@@ -11,7 +11,7 @@ export const definitions = {
   fileNos: { type: String },
   previousCaseNumber: { type: String },
   relatedCaseNumbers: [{ type: String }],
-  typeOfCase: { type: String },
+  typeOfCase: { type: Schema.Types.ObjectId, ref: 'CaseType' },
   caseStatus: { type: Schema.Types.ObjectId, ref: 'CaseStatus' },
   court: { type: String },
   courtDiv: { type: String },
