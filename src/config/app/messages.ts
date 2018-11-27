@@ -83,10 +83,7 @@ export const messages = {
     ENG:
       'Email Verification Pending.We have sent an email to activate your account.Please activate your account',
   },
-  NoInterviewer: {
-    ENG: 'No Interviewer Found',
-  },
-  interviewConflict: {
-    ENG: 'Interview Scheduled',
+  CaseDuplicate: {
+    ENG: 'Case Existing',
   },
 };
