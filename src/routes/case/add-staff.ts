@@ -1,3 +1,4 @@
+/* tslint:disable:no-console */
 import { RequestHandler } from 'express';
 
 import {

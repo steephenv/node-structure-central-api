@@ -29,6 +29,7 @@ const resetDatabase = async (MONGO_URI?: string) => {
       mongoose.connection.db.dropCollection('roles').catch(errHandler),
       mongoose.connection.db.dropCollection('atolls').catch(errHandler),
       mongoose.connection.db.dropCollection('islands').catch(errHandler),
+      mongoose.connection.db.dropCollection('cases').catch(errHandler),
     ]);
   } catch (err) {
     if (err.code === 26 || err.message === 'ns not found') {

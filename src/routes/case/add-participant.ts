@@ -20,7 +20,6 @@ export const addParticipants: RequestHandler = async (req, res, next) => {
     }
 
     const participant = await CaseDetails.find(condition).exec();
-    console.log(condition);
     if (participant.length) {
       return next(
         new RequestError(RequestErrorType.CONFLICT, messages.CaseDuplicate),
