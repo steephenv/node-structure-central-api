@@ -12,7 +12,7 @@ describe('Test adding participant in case  ===> ', () => {
         json: true,
         body: {
           caseId: '5bebbd46349fb41db88471d2',
-          role: 'vvv',
+          role: '5bebbd46349fb41db88471d2',
           status: 'cccc',
           party: 'cccvvff',
         },

@@ -25,7 +25,7 @@ export const definitions = {
       statusDiv: { type: String },
       party: { type: String },
       partyDiv: { type: String },
-      role: { type: String },
+      role: { type: Schema.Types.ObjectId, ref: 'CaseParticipantRole' },
     },
   ],
   caseStaffs: [
