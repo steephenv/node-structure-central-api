@@ -6,9 +6,9 @@ export const staffRuleSchema = Joi.object().keys({
   status: Joi.string()
     .trim()
     .required(),
-  party: Joi.string()
+  statusDiv: Joi.string()
     .trim()
-    .required(),
+    .optional(),
   attorney: Joi.string()
     .trim()
     .required(),

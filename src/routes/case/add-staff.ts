@@ -26,6 +26,7 @@ export const addStaffs: RequestHandler = async (req, res, next) => {
       );
     }
 
+    const statusDivi = req.body.statusDiv || '';
     if (req.body.id) {
       await CaseDetails.update(
         { 'caseStaffs._id': req.body.id },
@@ -35,6 +36,7 @@ export const addStaffs: RequestHandler = async (req, res, next) => {
             'caseStaffs.$.role': req.body.role,
             'caseStaffs.$.status': req.body.status,
             'caseStaffs.$.assignedBy': req.body.assignedBy,
+            'caseStaffs.$.statusDiv': statusDivi,
           },
         },
       ).exec();
@@ -48,6 +50,7 @@ export const addStaffs: RequestHandler = async (req, res, next) => {
               status: req.body.status,
               attorney: req.body.attorney,
               assignedBy: req.body.assignedBy,
+              statusDiv: statusDivi,
             },
           },
         },
