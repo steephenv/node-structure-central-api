@@ -31,8 +31,8 @@ export const definitions = {
   caseStaffs: [
     {
       attorney: { type: Schema.Types.ObjectId, ref: 'User' },
-      role: { type: String },
       status: { type: String },
+      statusDiv: { type: String },
       assignedBy: { type: Date },
     },
   ],
@@ -40,7 +40,9 @@ export const definitions = {
     {
       attorney: { type: Schema.Types.ObjectId, ref: 'User' },
       result: { type: String },
+      resultDiv: { type: String },
       purposeOfHearing: { type: String },
+      purposeOfHearingDiv: { type: String },
       hearingDate: { type: Date },
     },
   ],

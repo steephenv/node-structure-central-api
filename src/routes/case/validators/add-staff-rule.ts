@@ -13,9 +13,6 @@ export const staffRuleSchema = Joi.object().keys({
     .trim()
     .required(),
   assignedBy: Joi.date().required(),
-  role: Joi.string()
-    .trim()
-    .required(),
   id: Joi.string().optional(),
 });
 
