@@ -5,6 +5,7 @@ export const description = 'Stores case participants role and details';
 
 export const definitions = {
   caseParticipantRole: { type: String, required: true },
+  caseParticipantRoleDiv: { type: String, required: true },
   isDelete: {
     type: Boolean,
     default: false,
