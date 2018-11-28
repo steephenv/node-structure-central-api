@@ -22,7 +22,9 @@ export const definitions = {
   caseParticipants: [
     {
       status: { type: String },
+      statusDiv: { type: String },
       party: { type: String },
+      partyDiv: { type: String },
       role: { type: String },
     },
   ],
