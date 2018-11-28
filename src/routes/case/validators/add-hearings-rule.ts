@@ -9,7 +9,10 @@ export const hearingRuleSchema = Joi.object().keys({
   result: Joi.string()
     .trim()
     .required(),
-  purposeOfHearing: Joi.string()
+  resultDiv: Joi.string()
+    .trim()
+    .optional(),
+  caseHearingType: Joi.string()
     .trim()
     .required(),
   hearingDate: Joi.date().required(),

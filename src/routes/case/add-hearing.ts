@@ -26,6 +26,7 @@ export const addHearing: RequestHandler = async (req, res, next) => {
       );
     }
 
+    const resultDivVal = req.body.resultDiv || '';
     if (req.body.id) {
       await CaseDetails.update(
         { 'caseHearings._id': req.body.id },
@@ -33,7 +34,8 @@ export const addHearing: RequestHandler = async (req, res, next) => {
           $set: {
             'caseHearings.$.attorney': req.body.attorney,
             'caseHearings.$.result': req.body.result,
-            'caseHearings.$.purposeOfHearing': req.body.purposeOfHearing,
+            'caseHearings.$.resultDiv': resultDivVal,
+            'caseHearings.$.caseHearingType': req.body.caseHearingType,
             'caseHearings.$.hearingDate': req.body.hearingDate,
           },
         },
@@ -46,7 +48,8 @@ export const addHearing: RequestHandler = async (req, res, next) => {
             caseHearings: {
               attorney: req.body.attorney,
               result: req.body.result,
-              purposeOfHearing: req.body.purposeOfHearing,
+              resultDiv: resultDivVal,
+              caseHearingType: req.body.caseHearingType,
               hearingDate: req.body.hearingDate,
             },
           },

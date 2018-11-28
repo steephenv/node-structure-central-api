@@ -39,10 +39,9 @@ export const definitions = {
   caseHearings: [
     {
       attorney: { type: Schema.Types.ObjectId, ref: 'User' },
+      caseHearingType: { type: Schema.Types.ObjectId, ref: 'CaseHearingType' },
       result: { type: String },
       resultDiv: { type: String },
-      purposeOfHearing: { type: String },
-      purposeOfHearingDiv: { type: String },
       hearingDate: { type: Date },
     },
   ],
