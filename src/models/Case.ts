@@ -34,6 +34,14 @@ export const definitions = {
       assignedBy: { type: Date },
     },
   ],
+  caseHearings: [
+    {
+      attorney: { type: Schema.Types.ObjectId, ref: 'User' },
+      result: { type: String },
+      purposeOfHearing: { type: String },
+      hearingDate: { type: Date },
+    },
+  ],
   createdAt: { type: Date },
   updatedAt: { type: Date },
   isDelete: {
