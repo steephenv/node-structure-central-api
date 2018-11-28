@@ -22,7 +22,7 @@
         - caseId
         - result
         - attorney
-        - purposeOfHearing
+        - caseHearingType
         - hearingDate
         properties:
           caseId:
@@ -30,11 +30,14 @@
             example: 5bebbd46349fb41db88471d2
           result:
             type: string
+            example: word
+          resultDiv:
+            type: string
             example: word 
           attorney: 
             type: string
             description: userId
-          purposeOfHearing: 
+          caseHearingType: 
             type: string
           hearingDate:
             type: date  
