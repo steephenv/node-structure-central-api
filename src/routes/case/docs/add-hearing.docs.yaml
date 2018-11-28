@@ -1,0 +1,46 @@
+/case/add-hearing:
+  post:
+    # security:
+    # - Bearer: []
+    summary: api for adding hearings in case.
+    tags:
+    - Authentication
+    description: api for adding hearings in case
+    parameters:
+    - name: X-Requested-With
+      description: set value to XMLHttpRequest if you are making an xhr request
+      in: header
+      required: true
+      default: XMLHttpRequest
+    - name: Body
+      description: ''
+      in: body
+      required: true
+      schema:
+        type: object
+        required:
+        - caseId
+        - result
+        - attorney
+        - purposeOfHearing
+        - hearingDate
+        properties:
+          caseId:
+            type: string
+            example: 5bebbd46349fb41db88471d2
+          result:
+            type: string
+            example: word 
+          attorney: 
+            type: string
+            description: userId
+          purposeOfHearing: 
+            type: string
+          hearingDate:
+            type: date  
+          id:
+            type: string
+            description: id of each object       
+    responses:
+      200:
+        description: "successful attempt, returns `success message`"
