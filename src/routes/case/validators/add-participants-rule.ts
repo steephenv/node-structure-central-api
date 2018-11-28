@@ -6,9 +6,15 @@ export const participantRuleSchema = Joi.object().keys({
   status: Joi.string()
     .trim()
     .required(),
+  statusDiv: Joi.string()
+    .trim()
+    .optional(),
   party: Joi.string()
     .trim()
     .required(),
+  partyDiv: Joi.string()
+    .trim()
+    .optional(),
   role: Joi.string()
     .trim()
     .required(),

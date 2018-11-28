@@ -27,6 +27,9 @@ export const addParticipants: RequestHandler = async (req, res, next) => {
       );
     }
 
+    const statusDivi = req.body.statusDiv || '';
+    const partyDivi = req.body.partyDiv || '';
+
     if (req.body.id) {
       await CaseDetails.update(
         { 'caseParticipants._id': req.body.id },
@@ -34,7 +37,9 @@ export const addParticipants: RequestHandler = async (req, res, next) => {
           $set: {
             'caseParticipants.$.role': req.body.role,
             'caseParticipants.$.status': req.body.status,
+            'caseParticipants.$.statusDiv': statusDivi,
             'caseParticipants.$.party': req.body.party,
+            'caseParticipants.$.partyDiv': partyDivi,
           },
         },
       ).exec();
@@ -47,6 +52,8 @@ export const addParticipants: RequestHandler = async (req, res, next) => {
               role: req.body.role,
               status: req.body.status,
               party: req.body.party,
+              statusDiv: statusDivi,
+              partyDiv: partyDivi,
             },
           },
         },
