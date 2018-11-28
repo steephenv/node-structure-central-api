@@ -14,6 +14,7 @@ export const addParticipants: RequestHandler = async (req, res, next) => {
     const condition: any = {
       _id: req.body.caseId,
       'caseParticipants.role': req.body.role,
+      'caseParticipants.party': req.body.party,
     };
     if (req.body.id) {
       condition['caseParticipants._id'] = { $ne: req.body.id };
