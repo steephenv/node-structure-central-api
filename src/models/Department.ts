@@ -5,6 +5,7 @@ export const description = 'Stores document type and details';
 
 export const definitions = {
   departmentName: { type: String, required: true },
+  departmentNameDiv: { type: String, required: true },
   isDelete: {
     type: Boolean,
     default: false,

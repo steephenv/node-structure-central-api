@@ -6,6 +6,8 @@ import { promisify } from 'bluebird';
 import * as userHome from 'user-home';
 import * as mkdirpCb from 'mkdirp';
 
+import { folderStructure } from './get-folder-structure';
+
 import {
   RequestError,
   RequestErrorType,
@@ -44,3 +46,5 @@ utils.post('/upload', upload.single('file'), (req, res, next) => {
     relAccessUrl,
   });
 });
+
+utils.post('/folder-structure', folderStructure);
