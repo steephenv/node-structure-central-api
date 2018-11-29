@@ -5,7 +5,7 @@ export const description = 'Stores details of holiday info';
 
 export const definitions = {
   occasionDate: { type: Date, unique: true, required: true },
-  occasionNameEng: { type: String, required: true },
+  occasionName: { type: String, required: true },
   occasionNameDiv: { type: String, required: true },
   isDelete: {
     type: Boolean,
