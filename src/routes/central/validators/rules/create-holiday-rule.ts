@@ -4,7 +4,7 @@ export const holidaySchema = Joi.object().keys({
   occasionDate: Joi.string()
     .trim()
     .required(),
-  occasionNameEng: Joi.string()
+  occasionName: Joi.string()
     .trim()
     .required(),
   occasionNameDiv: Joi.string()
