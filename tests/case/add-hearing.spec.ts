@@ -14,7 +14,7 @@ describe('Test adding hearing in case  ===> ', () => {
           caseId: '5bfe270c31618a16d7b3e690',
           attorney: '5bfe270c31618a16d7b3e690',
           result: 'cccc',
-          purposeOfHearing: 'cccvvff',
+          caseHearingType: '5bfe270c31618a16d7b3e690',
           hearingDate: new Date(),
         },
       })
