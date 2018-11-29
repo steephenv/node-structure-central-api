@@ -31,9 +31,9 @@ tr:nth-child(even) {
   </tr>
   <%if(pdfData){%>
   <tr>
-    <td><%pdfData.location ? pdfData.location: ''%></td>
-    <td><%pdfData.room ? pdfData.room: ''%></td>
-    <td><%pdfData.capacity ? pdfData.capacity: ''%></td>
+    <td><%= pdfData.location ? pdfData.location: ''%></td>
+    <td><%= pdfData.room ? pdfData.room: ''%></td>
+    <td><%= pdfData.capacity ? pdfData.capacity: ''%></td>
   </tr>
   <%}%>
 </table>
