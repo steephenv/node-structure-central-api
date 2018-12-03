@@ -38,6 +38,9 @@ export const contactSchema = Joi.object().keys({
   postCode: Joi.string()
     .trim()
     .required(),
+  mobileNumber: Joi.string()
+    .trim()
+    .optional(),
   country: Joi.string()
     .trim()
     .required(),

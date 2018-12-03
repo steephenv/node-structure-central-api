@@ -25,6 +25,7 @@ export const definitions = {
   city: { type: String },
   postCode: { type: String },
   country: { type: String },
+  mobileNumber: { type: String },
   atoll: {
     type: Schema.Types.ObjectId,
     ref: 'Atoll',
