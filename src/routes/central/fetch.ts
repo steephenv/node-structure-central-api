@@ -30,9 +30,11 @@ export const fetchOperation: RequestHandler = async (req, res, next) => {
     req.body.selectingFields = req.body.selectingFields || '';
     req.body.distinct = req.body.distinct || '';
     req.body.sort = req.body.sort || null;
+    req.body.isCount = req.body.isCount || false;
 
     let preparedQuery: any;
     preparedQuery = prepareGQLQuery(req.body.condition);
+    const conditionOnly = preparedQuery;
 
     let prepareResult = Models[req.body.collection].find(preparedQuery);
 
@@ -65,10 +67,17 @@ export const fetchOperation: RequestHandler = async (req, res, next) => {
     // lean last
     prepareResult.lean();
     const result = await prepareResult.exec();
-    return res.status(200).send({
+    const response: any = {
       success: true,
       data: result,
-    });
+    };
+    if (req.body.isCount) {
+      const contentCount = await Models[req.body.collection]
+        .count(conditionOnly)
+        .exec();
+      response.totalCount = contentCount;
+    }
+    return res.status(200).send(response);
   } catch (err) {
     console.log(err);
     return next(new RequestError(RequestErrorType.BAD_REQUEST, err));
