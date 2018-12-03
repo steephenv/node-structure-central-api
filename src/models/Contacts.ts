@@ -9,6 +9,14 @@ export const definitions = {
   contact: { type: String, required: true, unique: true },
   contactDiv: { type: String },
   contactType: { type: String },
+  department: {
+    type: Schema.Types.ObjectId,
+    ref: 'Department',
+  },
+  departmentSection: {
+    type: Schema.Types.ObjectId,
+    ref: 'DepartmentSection',
+  },
   contactTypeDiv: { type: String },
   email: { type: String, required: true },
   fax: { type: String },
