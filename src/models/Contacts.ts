@@ -4,11 +4,16 @@ import { model as mongooseModel, Schema } from 'mongoose';
 export const description = 'Stores contact details';
 
 export const definitions = {
-  organization: { type: String, required: true, unique: true },
-  organizationDiv: { type: String },
+  organization: {
+    type: Schema.Types.ObjectId,
+    ref: 'Organization',
+  },
   contact: { type: String, required: true, unique: true },
   contactDiv: { type: String },
-  contactType: { type: String },
+  contactType: {
+    type: Schema.Types.ObjectId,
+    ref: 'ContactType',
+  },
   department: {
     type: Schema.Types.ObjectId,
     ref: 'Department',
@@ -17,7 +22,6 @@ export const definitions = {
     type: Schema.Types.ObjectId,
     ref: 'DepartmentSection',
   },
-  contactTypeDiv: { type: String },
   email: { type: String, required: true },
   fax: { type: String },
   houseApt: { type: String, required: true },
