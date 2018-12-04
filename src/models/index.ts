@@ -21,6 +21,8 @@ import { Atoll as atoll } from './Atoll';
 import { Island as island } from './Island';
 import { Contact as contact } from './Contacts';
 import { Task as task } from './Task';
+import { ContactType as contacttype } from './ContactType';
+import { Organization as organization } from './Organization';
 
 export const Models: { [key: string]: typeof AppData } = {
   user,
@@ -44,4 +46,6 @@ export const Models: { [key: string]: typeof AppData } = {
   island,
   contact,
   task,
+  contacttype,
+  organization,
 };
