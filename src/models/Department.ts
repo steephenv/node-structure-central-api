@@ -14,6 +14,12 @@ export const definitions = {
     type: Schema.Types.ObjectId,
     ref: 'User',
   },
+  createdAt: {
+    type: Date,
+  },
+  updatedAt: {
+    type: Date,
+  },
 };
 
 const departmentSchema: Schema = new Schema(definitions);
