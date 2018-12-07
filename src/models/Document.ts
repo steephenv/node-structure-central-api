@@ -4,7 +4,8 @@ import { model as mongooseModel, Schema } from 'mongoose';
 export const description = 'Stores details of uploaded documents info';
 
 export const definitions = {
-  case: { type: Schema.Types.ObjectId, ref: 'CaseDetails', required: true },
+  case: { type: Schema.Types.ObjectId, ref: 'CaseDetails' },
+  recordType: { type: Boolean },
   docTitle: { type: String, required: true },
   docUrl: { type: String, required: true },
 

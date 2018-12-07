@@ -3,7 +3,7 @@ import * as Joi from 'joi';
 export const documentSchema = Joi.object().keys({
   case: Joi.string()
     .trim()
-    .required(),
+    .optional(),
   docTitle: Joi.string()
     .trim()
     .required(),
