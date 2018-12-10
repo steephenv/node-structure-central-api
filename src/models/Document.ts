@@ -7,12 +7,15 @@ export const definitions = {
   case: { type: Schema.Types.ObjectId, ref: 'CaseDetails' },
   recordType: { type: Boolean },
   docTitle: { type: String, required: true },
-  docUrl: { type: String, required: true },
+  docUrl: { type: String },
 
   docCategory: { type: String },
   docStage: { type: String },
   docSummary: { type: String },
-  docType: { type: String },
+  docType: {
+    type: Schema.Types.ObjectId,
+    ref: 'DocType',
+  },
   documentDate: { type: Date },
   pageCount: { type: Number },
   secretary: { type: String },
