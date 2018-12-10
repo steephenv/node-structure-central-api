@@ -9,7 +9,7 @@ export const documentSchema = Joi.object().keys({
     .required(),
   docUrl: Joi.string()
     .trim()
-    .required(),
+    .optional(),
   physicalLoc: Joi.string()
     .trim()
     .optional(),
