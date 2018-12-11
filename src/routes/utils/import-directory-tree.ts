@@ -2,6 +2,6 @@
 
 const directoryTree = require('directory-tree');
 // tslint:disable: no-console
-console.log('adfa--------------');
+// console.log('adfa--------------');
 
 export { directoryTree };
