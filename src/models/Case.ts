@@ -45,6 +45,13 @@ export const definitions = {
       hearingDate: { type: Date },
     },
   ],
+  caseOrders: [
+    {
+      orderDate: { type: Date },
+      order: { type: String },
+      orderDiv: { type: String },
+    },
+  ],
   createdAt: { type: Date },
   updatedAt: { type: Date },
   isDelete: {
