@@ -19,7 +19,7 @@ export const caseSchema = Joi.object().keys({
   previousCaseNumber: Joi.string()
     .trim()
     .optional(),
-  relatedCaseNumbers: Joi.array().optional(),
+  relatedCaseNumbers: Joi.string().optional(),
   typeOfCase: Joi.string()
     .trim()
     .required(),
