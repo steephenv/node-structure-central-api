@@ -36,7 +36,7 @@ export const addOrders: RequestHandler = async (req, res, next) => {
           $set: {
             'caseOrders.$.order': req.body.order,
             'caseOrders.$.orderDate': req.body.orderDate,
-            'caseOrders.$.orderDiv': req.body.orderDiv,
+            'caseOrders.$.orderDiv': orderDivi,
           },
         },
       ).exec();
@@ -48,7 +48,7 @@ export const addOrders: RequestHandler = async (req, res, next) => {
             caseOrders: {
               orderDate: req.body.orderDate,
               order: req.body.order,
-              orderDiv: req.body.orderDiv,
+              orderDiv: orderDivi,
             },
           },
         },
