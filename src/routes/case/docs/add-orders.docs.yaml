@@ -1,0 +1,41 @@
+/case/add-order:
+  post:
+    # security:
+    # - Bearer: []
+    summary: api for adding orders in case.
+    tags:
+    - Authentication
+    description: api for adding orders in case
+    parameters:
+    - name: X-Requested-With
+      description: set value to XMLHttpRequest if you are making an xhr request
+      in: header
+      required: true
+      default: XMLHttpRequest
+    - name: Body
+      description: ''
+      in: body
+      required: true
+      schema:
+        type: object
+        required:
+        - caseId
+        - order
+        - orderDiv
+        - orderDate
+        properties:
+          caseId:
+            type: string
+            example: 5bebbd46349fb41db88471d2
+          order:
+            type: string
+          orderDiv:
+            type: string
+          orderDate:
+            type: date       
+          id:
+            type: string
+            description: id of each object       
+    responses:
+      200:
+        description: "successful attempt, returns `success message`"
