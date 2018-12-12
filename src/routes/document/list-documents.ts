@@ -31,7 +31,7 @@ export const listDocsFolders: RequestHandler = async (req, res, next) => {
 
     if (groupedDocs.length) {
       details = await BluePromise.map(groupedDocs, async (docs: any) => {
-        const [dc, records] = await BluePromise.all([
+        const [dc, records, documents] = await BluePromise.all([
           DocType.findOne(docs._id)
             .select('docType')
             .lean()
@@ -40,9 +40,13 @@ export const listDocsFolders: RequestHandler = async (req, res, next) => {
             .select('firstName lastName')
             .lean()
             .exec(),
+          Document.find({ docType: docs._id })
+            .lean()
+            .exec(),
         ]);
 
-        (dc as any).users = records;
+        (dc as any).accessRights = records;
+        (dc as any).documents = documents;
 
         return dc;
 
@@ -58,7 +62,7 @@ export const listDocsFolders: RequestHandler = async (req, res, next) => {
 
         // details.push(records);
       });
-      console.log(...details);
+      // console.log(...details);
     }
     const result = [...details];
     // console.log(result);
