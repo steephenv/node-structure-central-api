@@ -1,4 +1,4 @@
-/documents/list-folders:
+/documents/list-folders?caseId:'1111111111111111':
   get:
     # security:
     # - Bearer: []
