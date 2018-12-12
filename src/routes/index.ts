@@ -6,6 +6,7 @@ import { user } from './user';
 import { utils } from './utils';
 import { getIslands } from './get-islands';
 import { caseRouter } from './case';
+import { docs } from './document';
 
 // swagger
 import { swaggerSpec } from './swagger';
@@ -18,6 +19,7 @@ apis.use('/user', user);
 apis.use('/utils', utils);
 apis.get('/get-islands', getIslands);
 apis.use('/case', caseRouter);
+apis.use('/documents', docs);
 
 // load docs if requested
 if (getConfig('app.docs')) {
