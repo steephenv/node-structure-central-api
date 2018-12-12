@@ -5,6 +5,7 @@ import {
   RequestErrorType,
 } from '../../error-handler/RequestError';
 import { Promise as BluePromise } from 'bluebird';
+import * as mongoose from 'mongoose';
 
 import { Document } from '../../models/Document';
 import { User } from '../../models/User';
@@ -14,7 +15,7 @@ export const listDocsFolders: RequestHandler = async (req, res, next) => {
   try {
     const matchCond: any = { isDelete: false };
     if (req.query && req.query.caseId) {
-      matchCond.case = req.query.caseId;
+      matchCond.case = mongoose.Types.ObjectId(req.query.caseId);
     }
     const groupedDocs = await Document.aggregate([
       { $match: matchCond },
