@@ -5,7 +5,7 @@ describe('Test for list docs  ===> ', () => {
     'List docs',
     done => {
       got(
-        'http://localhost:7000/v1/documents/list-folders?caseId=123564978312654231',
+        'http://localhost:7000/v1/documents/list-folders?caseId=5bee9acd04caea06b0b38e1a',
         {
           method: 'GET',
           headers: {
