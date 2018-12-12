@@ -54,8 +54,8 @@ export const listDocsFolders: RequestHandler = async (req, res, next) => {
       });
       // console.log(...details);
     }
-
-    return res.send({ success: true, data: details });
+    const result = [...details];
+    return res.send({ success: true, data: result });
   } catch (err) {
     console.log(err);
     return next(new RequestError(RequestErrorType.BAD_REQUEST, err));
