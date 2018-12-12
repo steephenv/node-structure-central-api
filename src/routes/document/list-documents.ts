@@ -34,13 +34,19 @@ export const listDocsFolders: RequestHandler = async (req, res, next) => {
         const [dc, records] = await BluePromise.all([
           DocType.findOne(docs._id)
             .select('docType')
+            .lean()
             .exec(),
           User.find({ _id: { $in: docs.ar } })
             .select('firstName lastName')
+            .lean()
             .exec(),
         ]);
 
-        return [dc, ...records];
+        (dc as any).users = records;
+
+        return dc;
+
+        // return [dc, ...records];
 
         // const dc = await DocType.findOne(docs._id)
         //   .select('docType')
@@ -52,9 +58,10 @@ export const listDocsFolders: RequestHandler = async (req, res, next) => {
 
         // details.push(records);
       });
-      // console.log(...details);
+      console.log(...details);
     }
     const result = [...details];
+    // console.log(result);
     return res.send({ success: true, data: result });
   } catch (err) {
     console.log(err);
