@@ -13,9 +13,9 @@ import { DocType } from '../../models/DocType';
 export const listDocsFolders: RequestHandler = async (req, res, next) => {
   try {
     const matchCond: any = { isDelete: false };
-    // if (req.query && req.query.caseId) {
-    //   matchCond.case = req.query.caseId;
-    // }
+    if (req.query && req.query.caseId) {
+      matchCond.case = req.query.caseId;
+    }
     const groupedDocs = await Document.aggregate([
       { $match: matchCond },
       { $unwind: '$accessRights' },
