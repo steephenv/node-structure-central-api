@@ -1,4 +1,9 @@
 import * as Joi from 'joi';
+import { RequestHandler } from 'express';
+import {
+  RequestError,
+  RequestErrorType,
+} from '../../../error-handler/RequestError';
 // tslint:disable:variable-name
 
 export const docUpdateSchema = Joi.object().keys({
@@ -29,3 +34,17 @@ export const docUpdateSchema = Joi.object().keys({
   island: Joi.string().optional(),
   code: Joi.string().optional(),
 });
+
+export const docUpdateRules: RequestHandler = (req, res, next) => {
+  Joi.validate(
+    req.body,
+    docUpdateSchema,
+    { stripUnknown: true },
+    (err: any) => {
+      if (err) {
+        return next(new RequestError(RequestErrorType.BAD_REQUEST, err));
+      }
+      next();
+    },
+  );
+};
