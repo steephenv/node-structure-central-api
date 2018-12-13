@@ -15,7 +15,9 @@ export const delDocument: RequestHandler = async (req, res, next) => {
       .lean()
       .exec();
 
-    await unlinkFunction(document.docUrl);
+    if (document.docUrl) {
+      await unlinkFunction(document.docUrl);
+    }
 
     await Doc.remove({ _id: req.query.docId }).exec();
 

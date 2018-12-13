@@ -13,7 +13,6 @@ export const shareDocument: RequestHandler = async (req, res, next) => {
       { _id: req.body.docId },
       { $addToSet: { accessRights: req.body.accessRights } },
     ).exec();
-    console.log('.....................', document);
     return res.status(200).send({ success: true, result: document });
   } catch (err) {
     console.log(err);

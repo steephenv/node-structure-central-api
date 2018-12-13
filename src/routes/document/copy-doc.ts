@@ -59,10 +59,10 @@ export const copyDoc: RequestHandler = async (req, res, next) => {
       );
     }
     const newDoc = document;
-    const newUrl = await copyFileFunction(
-      req.body.destinationUrl,
-      newDoc.docUrl,
-    );
+    let newUrl = '';
+    if (newDoc.docUrl) {
+      newUrl = await copyFileFunction(req.body.destinationUrl, newDoc.docUrl);
+    }
 
     delete newDoc._id;
     newDoc.createdAt = new Date();

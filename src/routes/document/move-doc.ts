@@ -45,12 +45,12 @@ export const moveDocument: RequestHandler = async (req, res, next) => {
       );
     }
 
-    const newUrl = await copyFileFunction(
-      req.body.destinationUrl,
-      document.docUrl,
-    );
+    let newUrl = '';
+    if (document.docUrl) {
+      newUrl = await copyFileFunction(req.body.destinationUrl, document.docUrl);
 
-    await unlinkFunction(document.docUrl);
+      await unlinkFunction(document.docUrl);
+    }
 
     document.updatedAt = new Date();
     document.docType = req.body.docType;
