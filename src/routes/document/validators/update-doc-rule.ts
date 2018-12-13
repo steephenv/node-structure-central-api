@@ -1,26 +1,9 @@
 import * as Joi from 'joi';
 // tslint:disable:variable-name
 
-export const docTypeAddSchema = Joi.object().keys({
-  operation: Joi.string()
-    .lowercase()
-    .required()
-    .valid('copy', 'move', 'delete', 'edit', 'share'),
+export const docUpdateSchema = Joi.object().keys({
   docId: Joi.string().required(),
-  destinationUrl: Joi.string()
-    .when('operation', {
-      is: 'copy',
-      then: Joi.required(),
-    })
-    .when('operation', { is: 'move', then: Joi.required() }),
-  docType: Joi.string()
-    .when('operation', { is: 'copy', then: Joi.required() })
-    .when('operation', { is: 'move', then: Joi.required() }),
-  accessRights: Joi.array().when('operation', {
-    is: 'share',
-    then: Joi.required(),
-  }),
-
+  accessRights: Joi.array().optional(),
   case: Joi.string().optional(),
   recordType: Joi.string().optional(),
   docTitle: Joi.string().optional(),
