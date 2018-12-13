@@ -17,6 +17,31 @@ export const UPLOAD_DIR = pathJoin(userHome, 'cma-uploads');
 
 import { Document as Doc } from '../../models/Document';
 
+export const copyFileFunction = async (destUrl: string, oldUrl: string) => {
+  const relDir = destUrl;
+  const absDir = pathJoin(UPLOAD_DIR, relDir);
+
+  await mkdirp(absDir);
+
+  const newFileName = oldUrl.substr(oldUrl.lastIndexOf('/') + 1);
+  const timeStamp = newFileName.split('-')[0];
+  newFileName.replace(timeStamp, Date.now().toString());
+
+  const destination = pathJoin(absDir, newFileName);
+
+  const sourceRel = oldUrl.replace('assets/', '');
+  const sourcePath = pathJoin(UPLOAD_DIR, sourceRel);
+
+  await new BluePromise((resolve, reject) => {
+    fs.createReadStream(sourcePath)
+      .pipe(fs.createWriteStream(destination))
+      .on('finish', () => resolve())
+      .on('error', err => reject(err));
+  });
+
+  return pathJoin('assets', destUrl, newFileName);
+};
+
 export const copyDoc: RequestHandler = async (req, res, next) => {
   try {
     const document = await Doc.findOne({ _id: req.body.docId })
@@ -33,37 +58,18 @@ export const copyDoc: RequestHandler = async (req, res, next) => {
         new RequestError(RequestErrorType.CONFLICT, 'Doctype conflict'),
       );
     }
-
     const newDoc = document;
+    const newUrl = await copyFileFunction(
+      req.body.destinationUrl,
+      newDoc.docUrl,
+    );
+
+    delete newDoc._id;
     newDoc.createdAt = new Date();
     newDoc.createdBy = res.locals.user ? res.locals.user.userId : null;
     newDoc.docType = req.body.docType;
+    newDoc.docUrl = newUrl;
 
-    const relDir = req.body.destinationUrl || 'untitled';
-    const absDir = pathJoin(UPLOAD_DIR, relDir);
-
-    await mkdirp(absDir);
-
-    const newFileName = newDoc.docUrl.substr(
-      newDoc.docUrl.lastIndexOf('/') + 1,
-    );
-    const timeStamp = newFileName.split('-')[0];
-    newFileName.replace(timeStamp, Date.now());
-
-    const destination = pathJoin(absDir, newFileName);
-
-    const sourceRel = newDoc.docUrl.replace('assets/', '');
-    const sourcePath = pathJoin(UPLOAD_DIR, sourceRel);
-
-    await new BluePromise((resolve, reject) => {
-      fs.createReadStream(sourcePath)
-        .pipe(fs.createWriteStream(destination))
-        .on('finish', () => resolve())
-        .on('error', err => reject(err));
-    });
-
-    newDoc.docUrl = pathJoin('assets', req.body.destinationUrl, newFileName);
-    delete newDoc._id;
     const docObj = new Doc(newDoc);
     await docObj.save();
 
@@ -76,8 +82,3 @@ export const copyDoc: RequestHandler = async (req, res, next) => {
     return next(new RequestError(RequestErrorType.BAD_REQUEST, err));
   }
 };
-// export const updateDocs: RequestHandler = async (req, res, next) => {
-//   if (req.body.operation === 'copy') {
-//     return copyFile(req, res, next);
-//   }
-// };
