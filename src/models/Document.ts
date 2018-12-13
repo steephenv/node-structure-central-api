@@ -47,7 +47,7 @@ export const definitions = {
     comment:
       'has the from `objectId[]`. objectId taken from `Island` collection',
   },
-  code: { type: String, required: true },
+  code: { type: String },
   createdAt: { type: Date },
   updatedAt: { type: Date },
   isDelete: {
