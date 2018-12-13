@@ -12,7 +12,7 @@ describe('Test for Move docs  ===> ', () => {
         json: true,
         body: {
           destinationUrl: '/test-images/new',
-          operation: 'copy',
+          docType: '5c10d160a258192a68f958ab',
           docId: '5c10d160a258192a68f958ab',
         },
       })
