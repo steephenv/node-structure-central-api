@@ -1,0 +1,32 @@
+/documents/share-doc:
+  post:
+    # security:
+    # - Bearer: []
+    summary: api for sharing documents in documents.
+    tags:
+    - Authentication
+    description: api for sharing documents in documents.
+    parameters:
+    - name: X-Requested-With
+      description: set value to XMLHttpRequest if you are making an xhr request
+      in: header
+      required: true
+      default: XMLHttpRequest
+    - name: Body
+      description: ''
+      in: body
+      required: true
+      schema:
+        type: object
+        required:
+        - docId
+        - accessRights
+        properties:
+          docId:
+            type: string
+            example: 5c10d160a258192a68f958ab
+          accessRights:
+            type: array         
+    responses:
+      200:
+        description: "successful attempt, returns `success message`"
