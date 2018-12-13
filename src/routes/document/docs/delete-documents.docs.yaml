@@ -1,4 +1,4 @@
-/documents/del-doc':
+/documents/del-doc?docId=vvvvvvvvvvvvvvvvvvv:
   delete:
     # security:
     # - Bearer: []
