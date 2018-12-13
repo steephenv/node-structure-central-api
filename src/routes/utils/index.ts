@@ -27,7 +27,7 @@ const storageC: any = multer.diskStorage({
     try {
       await mkdirp(absDir);
     } catch (err) {
-      throw new RequestError(RequestErrorType.LOGIN_FAILED, err);
+      throw new RequestError(RequestErrorType.INTERNAL_SERVER_ERROR, err);
     }
 
     return cb(null, absDir);
