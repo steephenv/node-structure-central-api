@@ -11,11 +11,11 @@ import { promisify } from 'bluebird';
 import * as userHome from 'user-home';
 import * as mkdirpCb from 'mkdirp';
 
+import { Document as Doc } from '../../models/Document';
+
 const mkdirp = promisify(mkdirpCb);
 
 export const UPLOAD_DIR = pathJoin(userHome, 'cma-uploads');
-
-import { Document as Doc } from '../../models/Document';
 
 export const copyFileFunction = async (destUrl: string, oldUrl: string) => {
   const relDir = destUrl;
