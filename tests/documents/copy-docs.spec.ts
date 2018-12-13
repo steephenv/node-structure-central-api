@@ -1,8 +1,8 @@
 import * as got from 'got';
 
-describe('Test for Move docs  ===> ', () => {
+describe('Test for Copy docs  ===> ', () => {
   it(
-    'Move docs',
+    'Copy docs',
     done => {
       got('http://localhost:7000/v1/documents/copy-doc', {
         method: 'POST',
@@ -12,13 +12,15 @@ describe('Test for Move docs  ===> ', () => {
         json: true,
         body: {
           destinationUrl: '/test-images/new',
-          docType: '5c10d160a258192a68f958ab',
-          docId: '5c10d160a258192a68f958ab',
+          docType: '5c10d160a258192a68f957ab',
+          docId: '5c10d160a258192a68f957ab',
         },
       })
         .then(() => done())
         .catch(err => {
-          throw err;
+          expect(err.response.statusCode).toBe(400);
+          // throw err;
+          done();
         });
     },
     15000,

@@ -22,6 +22,12 @@ export const copyDoc: RequestHandler = async (req, res, next) => {
     const document = await Doc.findOne({ _id: req.body.docId })
       .lean()
       .exec();
+
+    if (!document) {
+      return next(
+        new RequestError(RequestErrorType.BAD_REQUEST, 'No such document'),
+      );
+    }
     if (document.docType === req.body.docType) {
       return next(
         new RequestError(RequestErrorType.CONFLICT, 'Doctype conflict'),
