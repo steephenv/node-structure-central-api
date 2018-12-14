@@ -8,6 +8,7 @@ export const definitions = {
   recordType: { type: Boolean },
   docTitle: { type: String, required: true },
   docUrl: { type: String },
+  docAccess: { type: String, enum: ['public', 'private'], default: 'public' },
 
   docCategory: { type: String },
   docStage: { type: String },
