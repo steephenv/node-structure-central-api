@@ -8,6 +8,7 @@ import { getIslands } from './get-islands';
 import { caseRouter } from './case';
 import { docs } from './document';
 
+import { attachTokenData } from '../access-control/attach-token-data';
 // swagger
 import { swaggerSpec } from './swagger';
 
@@ -18,8 +19,8 @@ apis.use('/central', centralApis);
 apis.use('/user', user);
 apis.use('/utils', utils);
 apis.get('/get-islands', getIslands);
-apis.use('/case', caseRouter);
-apis.use('/documents', docs);
+apis.use('/case', attachTokenData, caseRouter);
+apis.use('/documents', attachTokenData, docs);
 
 // load docs if requested
 if (getConfig('app.docs')) {

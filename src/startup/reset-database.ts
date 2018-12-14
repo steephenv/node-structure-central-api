@@ -5,7 +5,7 @@ import * as mongoose from 'mongoose';
 import { getMongooseConnectionPromise } from './db-init';
 import { initUsers } from './users';
 import { initRoles } from './roles';
-import { initAtolls } from './add-atoll';
+// import { initAtolls } from './add-atoll';
 
 import * as lme from 'lme';
 
@@ -28,7 +28,7 @@ const resetDatabase = async (MONGO_URI?: string) => {
       mongoose.connection.db.dropCollection('users').catch(errHandler),
       mongoose.connection.db.dropCollection('roles').catch(errHandler),
       mongoose.connection.db.dropCollection('atolls').catch(errHandler),
-      mongoose.connection.db.dropCollection('islands').catch(errHandler),
+      //  mongoose.connection.db.dropCollection('islands').catch(errHandler),
       mongoose.connection.db.dropCollection('cases').catch(errHandler),
       mongoose.connection.db.dropCollection('documents').catch(errHandler),
     ]);
@@ -43,7 +43,7 @@ const resetDatabase = async (MONGO_URI?: string) => {
   }
 
   try {
-    await BluePromise.all([initUsers(), initRoles(), initAtolls()]);
+    await BluePromise.all([initUsers(), initRoles()]);
   } catch (err) {
     console.log(err);
   }

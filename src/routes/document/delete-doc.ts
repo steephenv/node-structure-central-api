@@ -15,7 +15,7 @@ export const delDocument: RequestHandler = async (req, res, next) => {
       .lean()
       .exec();
 
-    if (document.docUrl) {
+    if (document && document.docUrl) {
       await unlinkFunction(document.docUrl);
     }
 
