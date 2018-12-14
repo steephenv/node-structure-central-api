@@ -13,10 +13,24 @@ import { DocType } from '../../models/DocType';
 
 export const listDocsFolders: RequestHandler = async (req, res, next) => {
   try {
-    const matchCond: any = { isDelete: false };
-    if (req.query && req.query.caseId) {
-      matchCond.case = mongoose.Types.ObjectId(req.query.caseId);
-    }
+    let matchCond: any = { isDelete: false };
+    // if (req.query && req.query.caseId) {
+    //   matchCond.case = mongoose.Types.ObjectId(req.query.caseId);
+    // }
+
+    matchCond = {
+      $and: [
+        { isDelete: false },
+        { case: mongoose.Types.ObjectId(req.query.caseId) },
+        {
+          $or: [
+            { docAccess: 'public' },
+            { accessRights: res.locals.user.userId },
+          ],
+        },
+      ],
+    };
+
     const groupedDocs = await Document.aggregate([
       { $match: matchCond },
       { $unwind: '$accessRights' },
