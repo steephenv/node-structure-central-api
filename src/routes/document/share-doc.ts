@@ -11,7 +11,7 @@ export const shareDocument: RequestHandler = async (req, res, next) => {
   try {
     const document: any = await Doc.updateOne(
       { _id: req.body.docId },
-      { $addToSet: { accessRights: req.body.accessRights } },
+      { $set: { accessRights: req.body.accessRights } },
     ).exec();
     return res.status(200).send({ success: true, result: document });
   } catch (err) {
