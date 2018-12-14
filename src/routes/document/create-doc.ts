@@ -16,6 +16,9 @@ export const createDocument: RequestHandler = async (req, res, next) => {
       req.body.accessRights = [...accessSet];
     }
 
+    req.body.createdBy = res.locals.user.userId;
+    req.body.createdAt = new Date();
+
     const newDoc = new Doc(req.body);
     const savedDoc = newDoc.save();
 

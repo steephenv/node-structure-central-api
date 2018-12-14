@@ -18,9 +18,11 @@ export const attachTokenData: RequestHandler = async (req, res, next) => {
       const decodedToken = await Jwt.verify(token[1]);
       // Attach token to res
       res.locals.user = decodedToken;
+    } else {
+      throw new Error('Invalid Token');
     }
     return next();
   } catch (error) {
-    return next();
+    return next(error);
   }
 };

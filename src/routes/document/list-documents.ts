@@ -56,6 +56,7 @@ export const listDocsFolders: RequestHandler = async (req, res, next) => {
             .lean()
             .exec(),
           Document.find({ docType: docs._id })
+            .populate('createdBy', 'firstName lastName')
             .lean()
             .exec(),
         ]);
