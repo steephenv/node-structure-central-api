@@ -7,7 +7,7 @@ import {
 } from '../../error-handler/RequestError';
 
 import { CaseDetails } from '../../models/Case';
-// import * as lme from 'lme';
+import * as lme from 'lme';
 
 export const fetchCases: RequestHandler = async (req, res, next) => {
   try {
@@ -30,18 +30,24 @@ export const fetchCases: RequestHandler = async (req, res, next) => {
         {
           path: 'caseStaffs.attorney',
           model: 'User',
+          select: { firstName: 1, lastName: 1 },
           populate: {
             path: 'role',
             model: 'Role',
           },
         },
         {
-          path: 'caseHearingType',
-          role: 'CaseHearingType',
+          path: 'caseHearings.caseHearingType',
+          model: 'CaseHearingType',
+        },
+        {
+          path: 'caseHearings.attorney',
+          model: 'User',
+          select: { firstName: 1, lastName: 1 },
         },
       ])
       .exec();
-    // lme.i(caseData);
+    lme.i(caseData);
     return res.send({ success: true, data: caseData });
   } catch (err) {
     console.log(err);
