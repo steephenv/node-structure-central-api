@@ -6,7 +6,7 @@ import {
 } from '../../error-handler/RequestError';
 import { Promise as BluePromise } from 'bluebird';
 import * as mongoose from 'mongoose';
-import * as lme from 'lme';
+// import * as lme from 'lme';
 
 import { Document } from '../../models/Document';
 import { User } from '../../models/User';
