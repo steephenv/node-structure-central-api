@@ -7,7 +7,7 @@ import {
 } from '../../error-handler/RequestError';
 
 import { CaseDetails } from '../../models/Case';
-import * as lme from 'lme';
+// import * as lme from 'lme';
 
 export const fetchCases: RequestHandler = async (req, res, next) => {
   try {
@@ -47,7 +47,6 @@ export const fetchCases: RequestHandler = async (req, res, next) => {
         },
       ])
       .exec();
-    lme.i(caseData);
     return res.send({ success: true, data: caseData });
   } catch (err) {
     console.log(err);
