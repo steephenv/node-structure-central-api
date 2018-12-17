@@ -32,8 +32,6 @@ export const listDocsFolders: RequestHandler = async (req, res, next) => {
       ],
     };
 
-    lme.i('............', matchCond, res.locals.user.userId);
-
     const groupedDocs = await Document.aggregate([
       { $match: matchCond },
       { $unwind: '$accessRights' },
