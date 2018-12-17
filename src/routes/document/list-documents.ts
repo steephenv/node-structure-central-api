@@ -6,6 +6,7 @@ import {
 } from '../../error-handler/RequestError';
 import { Promise as BluePromise } from 'bluebird';
 import * as mongoose from 'mongoose';
+import * as lme from 'lme';
 
 import { Document } from '../../models/Document';
 import { User } from '../../models/User';
@@ -25,11 +26,13 @@ export const listDocsFolders: RequestHandler = async (req, res, next) => {
         {
           $or: [
             { docAccess: 'public' },
-            { accessRights: res.locals.user.userId },
+            { accessRights: mongoose.Types.ObjectId(res.locals.user.userId) },
           ],
         },
       ],
     };
+
+    lme.i('............', matchCond, res.locals.user.userId);
 
     const groupedDocs = await Document.aggregate([
       { $match: matchCond },
