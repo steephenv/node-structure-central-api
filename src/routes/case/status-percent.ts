@@ -18,7 +18,7 @@ export const statusCount: RequestHandler = async (req, res, next) => {
     ]).exec();
     const resultRec = await CaseStatus.populate(caseData, { path: '_id' });
     // lme.i(resultRec);
-    return res.send({ success: true, data: caseData });
+    return res.send({ success: true, data: resultRec });
   } catch (err) {
     console.log(err);
     return next(new RequestError(RequestErrorType.INTERNAL_SERVER_ERROR, err));
