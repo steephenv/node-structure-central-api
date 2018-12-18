@@ -16,7 +16,7 @@ export const groupByMonth: RequestHandler = async (req, res, next) => {
       {
         $group: {
           _id: {
-            year: { $year: '$caseSubmittedDate' },
+            year: { $year: new Date() },
             month: { $month: '$caseSubmittedDate' },
           },
           totalCases: { $sum: 1 },
