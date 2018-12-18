@@ -1,17 +1,17 @@
-/case/status-count:
+/case/fetch-hearings:
   get:
     security:
     - Bearer: []
-    summary: api for case percent.
+    summary: api for fetch hearings.
     tags:
     - Authentication
-    description: api for case percent.
+    description: api for fetch hearings.
     parameters:
     - name: X-Requested-With
       description: set value to XMLHttpRequest if you are making an xhr request
       in: header
       required: true
-      default: XMLHttpRequest 
+      default: XMLHttpRequest    
     responses:
       200:
         description: "successful attempt, returns `success message`"
