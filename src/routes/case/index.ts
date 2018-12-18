@@ -11,6 +11,7 @@ import { addHearing } from '../case/add-hearing';
 import { addOrders } from '../case/add-order';
 import { fetchCases } from '../case/fetch-case';
 import { statusCount } from '../case/status-percent';
+import { fetchHearings } from '../case/get-hearings';
 
 export const caseRouter = express.Router();
 
@@ -20,3 +21,4 @@ caseRouter.post('/add-hearing', caseHearingRules, addHearing);
 caseRouter.post('/add-order', caseOrderRules, addOrders);
 caseRouter.get('/fetch-case', caseFetchRules, fetchCases);
 caseRouter.get('/status-count', statusCount);
+caseRouter.get('/fetch-hearings', fetchHearings);
