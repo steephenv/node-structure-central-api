@@ -7,7 +7,7 @@ import {
 } from '../../error-handler/RequestError';
 
 import { CaseDetails } from '../../models/Case';
-import * as lme from 'lme';
+// import * as lme from 'lme';
 
 export const groupByMonth: RequestHandler = async (req, res, next) => {
   try {
@@ -23,7 +23,7 @@ export const groupByMonth: RequestHandler = async (req, res, next) => {
         },
       },
     ]).exec();
-    lme.i(monthWiseData);
+    // lme.i(monthWiseData);
     return res.send({ success: true, data: monthWiseData });
   } catch (err) {
     console.log(err);
