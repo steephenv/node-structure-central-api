@@ -8,7 +8,7 @@ import {
 
 import { CaseDetails } from '../../models/Case';
 import { CaseStatus } from '../../models/CaseStatus';
-import * as lme from 'lme';
+// import * as lme from 'lme';
 
 export const statusCount: RequestHandler = async (req, res, next) => {
   try {
@@ -17,7 +17,7 @@ export const statusCount: RequestHandler = async (req, res, next) => {
       { $group: { _id: '$caseStatus', noOfRecords: { $sum: 1 } } },
     ]).exec();
     const resultRec = await CaseStatus.populate(caseData, { path: '_id' });
-    lme.i(resultRec);
+    // lme.i(resultRec);
     return res.send({ success: true, data: caseData });
   } catch (err) {
     console.log(err);
