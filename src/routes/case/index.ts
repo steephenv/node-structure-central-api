@@ -12,6 +12,7 @@ import { addOrders } from '../case/add-order';
 import { fetchCases } from '../case/fetch-case';
 import { statusCount } from '../case/status-percent';
 import { fetchHearings } from '../case/get-hearings';
+import { groupByMonth } from '../case/group-by-month';
 
 export const caseRouter = express.Router();
 
@@ -22,3 +23,4 @@ caseRouter.post('/add-order', caseOrderRules, addOrders);
 caseRouter.get('/fetch-case', caseFetchRules, fetchCases);
 caseRouter.get('/status-count', statusCount);
 caseRouter.get('/fetch-hearings', fetchHearings);
+caseRouter.get('/group-by-month', groupByMonth);
