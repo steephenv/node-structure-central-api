@@ -36,15 +36,6 @@ export const fetchCases: RequestHandler = async (req, res, next) => {
             model: 'Role',
           },
         },
-        {
-          path: 'caseHearings.caseHearingType',
-          model: 'CaseHearingType',
-        },
-        {
-          path: 'caseHearings.attorney',
-          model: 'User',
-          select: { firstName: 1, lastName: 1 },
-        },
       ])
       .exec();
     return res.send({ success: true, data: caseData });
