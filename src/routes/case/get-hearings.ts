@@ -37,7 +37,7 @@ export const fetchHearings: RequestHandler = async (req, res, next) => {
 
       hearingData = await CaseHearing.find({
         isDelete: false,
-        hearingDate: { $gte: startTime, lte: endTime },
+        hearingDate: { $gte: startTime, $lte: endTime },
       })
         .populate([
           { path: 'caseId', model: 'CaseDetails' },
