@@ -2,7 +2,7 @@ import * as Joi from 'joi';
 import { RequestHandler } from 'express';
 // tslint:disable:variable-name
 export const hearingRuleSchema = Joi.object().keys({
-  caseId: Joi.string().required(),
+  caseId: Joi.string().optional(),
   attorney: Joi.string()
     .trim()
     .required(),
