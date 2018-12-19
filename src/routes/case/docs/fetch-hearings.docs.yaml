@@ -1,4 +1,4 @@
-/case/fetch-hearings?caseId=xxxxxxxxxxxxxxxxxxxxx:
+/case/fetch-hearings?caseId=xxxxxxxxxxxxxxxxxxxxx||date='22-11-2018':
   get:
     security:
     - Bearer: []
