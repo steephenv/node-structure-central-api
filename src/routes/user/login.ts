@@ -34,6 +34,8 @@ export const login: RequestHandler = async (req, res, next) => {
     const accessToken = await Jwt.sign({
       userId: user._id,
       role: user.role.role,
+      userFullName:
+        user.firstName + ' ' + user.middleName + ' ' + user.lastName,
     });
 
     return res.status(200).send({
