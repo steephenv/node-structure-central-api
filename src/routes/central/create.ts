@@ -7,6 +7,8 @@ import {
 
 import { Models } from '../../models';
 
+import { addActivity } from '../utils/add-activity';
+
 import { Promise as BluePromise } from 'bluebird';
 
 export const createOperation: RequestHandler = async (req, res, next) => {
@@ -40,7 +42,19 @@ export const createOperation: RequestHandler = async (req, res, next) => {
         if (item.userId) {
           item.createdBy = item.userId;
         }
-        return await newCollection.create(item);
+        await newCollection.create(item);
+
+        if (
+          req.body.collection === 'casedetails' ||
+          req.body.collection === 'event' ||
+          req.body.collection === 'task'
+        ) {
+          let textDesc = res.locals.user.userFullName || '';
+          textDesc = textDesc + ' ' + 'created a new ' + req.body.collection;
+          textDesc = textDesc + ' ' + item.caseTitle || item.title;
+          await addActivity(textDesc, res);
+        }
+        return;
       },
     );
     return res.status(201).send({
