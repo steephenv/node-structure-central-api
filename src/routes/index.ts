@@ -15,7 +15,7 @@ import { swaggerSpec } from './swagger';
 // create router
 export const apis = express.Router();
 
-apis.use('/central', centralApis);
+apis.use('/central', attachTokenData, centralApis);
 apis.use('/user', user);
 apis.use('/utils', utils);
 apis.get('/get-islands', getIslands);
