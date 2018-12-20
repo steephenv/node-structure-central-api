@@ -13,7 +13,7 @@ describe('Test for sign up functionality  ===> ', () => {
         body: {
           email: 'lappi@yopmail.com',
           password: '123456',
-          role: 'user',
+          role: '5be3ca032c2c8d156799e4a5',
         },
       })
         .then(() => done())

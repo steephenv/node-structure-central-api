@@ -1,5 +1,5 @@
 import { RequestHandler } from 'express';
-
+/* tslint:disable:no-console */
 import { User } from '../../models/User';
 import { Jwt } from '../auth/utils/Jwt';
 import { messages } from '../../config/app/messages';
@@ -44,6 +44,7 @@ export const login: RequestHandler = async (req, res, next) => {
       accessToken,
     });
   } catch (err) {
+    console.log(err);
     return next(new RequestError(RequestErrorType.INTERNAL_SERVER_ERROR, err));
   }
 };

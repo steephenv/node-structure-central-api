@@ -1,3 +1,4 @@
+/* tslint:disable:no-console */
 import { RequestHandler } from 'express';
 import {
   RequestError,
@@ -21,6 +22,7 @@ export const createUser: RequestHandler = async (req, res, next) => {
       result,
     });
   } catch (err) {
+    console.log(err);
     return next(new RequestError(RequestErrorType.BAD_REQUEST, err));
   }
 };
