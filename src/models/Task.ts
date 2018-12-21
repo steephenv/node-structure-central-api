@@ -5,13 +5,29 @@ export const description = 'Stores task details';
 
 export const definitions = {
   reminderDate: { type: Date },
+  taskName: { type: String },
+  taskNameDiv: { type: String },
+  case: {
+    type: Schema.Types.ObjectId,
+    ref: 'CaseDetails',
+  },
+  assignedUsers: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: 'User',
+    },
+  ],
+  status: {
+    type: String,
+  },
+  message: { type: String },
+  messageDiv: { type: String },
   dueDate: { type: Date },
+  reminderMode: { type: String, enum: ['email', 'phone'] },
+  remindTo: [{ type: Schema.Types.ObjectId, ref: 'User' }],
   assignedBy: {
     type: Schema.Types.ObjectId,
     ref: 'User',
-  },
-  status: {
-    type: String,
   },
   description: {
     type: String,
