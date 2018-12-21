@@ -24,6 +24,7 @@ import { Task as task } from './Task';
 import { ContactType as contacttype } from './ContactType';
 import { Organization as organization } from './Organization';
 import { Event as event } from './Event';
+import { Activity as activity } from './Activity';
 
 export const Models: { [key: string]: typeof AppData } = {
   user,
@@ -50,4 +51,5 @@ export const Models: { [key: string]: typeof AppData } = {
   contacttype,
   organization,
   event,
+  activity,
 };
