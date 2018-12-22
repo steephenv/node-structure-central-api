@@ -40,9 +40,7 @@ export const groupByMonth: RequestHandler = async (req, res, next) => {
       },
     ]).exec();
 
-    if (!monthWiseData.length) {
-      return monthFullData;
-    } else {
+    if (monthWiseData.length) {
       // await new BluePromise((resolve, reject) => {});
       for (const mf of monthFullData) {
         for (const mw of monthWiseData) {
