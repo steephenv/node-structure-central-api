@@ -24,6 +24,7 @@ export const definitions = {
   documentDate: { type: Date },
   sectionEntryDate: { type: Date },
   reminderDate: { type: Date },
+  recipientDate: { type: Date },
   reminderMode: { type: String },
   pageCount: { type: Number },
   remindTo: [{ type: Schema.Types.ObjectId, ref: 'User' }],
@@ -40,6 +41,8 @@ export const definitions = {
   accessRights: [{ type: Schema.Types.ObjectId, ref: 'User' }],
   lastAccessBy: { type: Schema.Types.ObjectId, ref: 'User' },
   fileType: { type: String },
+  note: { type: String },
+  hasReminder: { type: Boolean, default: false },
   accessLog: [
     {
       takenDate: { type: Date },

@@ -7,6 +7,10 @@ export const documentSchema = Joi.object().keys({
   docTitle: Joi.string()
     .trim()
     .required(),
+  status: Joi.string()
+    .trim()
+    .valid('open', 'close')
+    .required(),
   docUrl: Joi.string()
     .trim()
     .optional(),
@@ -16,6 +20,7 @@ export const documentSchema = Joi.object().keys({
   lastAccessBy: Joi.string()
     .trim()
     .optional(),
+  pageCount: Joi.number().optional(),
   accessRights: Joi.array().optional(),
   accessLog: Joi.array().optional(),
 });
