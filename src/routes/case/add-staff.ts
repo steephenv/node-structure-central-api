@@ -7,6 +7,7 @@ import {
 } from '../../error-handler/RequestError';
 
 import { CaseDetails } from '../../models/Case';
+import { StaffNotification } from '../../models/StaffNotification';
 import { messages } from '../../config/app/messages';
 
 export const addStaffs: RequestHandler = async (req, res, next) => {
@@ -55,6 +56,14 @@ export const addStaffs: RequestHandler = async (req, res, next) => {
           },
         },
       ).exec();
+      const newNotification = new StaffNotification({
+        userId: req.body.attorney,
+        caseId: req.body.caseId,
+        createdAt: new Date(),
+        createdBy: res.locals.user.userId,
+        msg: `A new Case assigned`,
+      });
+      await newNotification.save();
     }
     return res.status(200).send({
       success: true,

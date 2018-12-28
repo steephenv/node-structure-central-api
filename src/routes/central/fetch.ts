@@ -71,6 +71,7 @@ export const fetchOperation: RequestHandler = async (req, res, next) => {
       success: true,
       data: result,
     };
+
     if (req.body.isCount) {
       const contentCount = await Models[req.body.collection]
         .count(conditionOnly)
