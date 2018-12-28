@@ -25,6 +25,8 @@ import { ContactType as contacttype } from './ContactType';
 import { Organization as organization } from './Organization';
 import { Event as event } from './Event';
 import { Activity as activity } from './Activity';
+import { DocumentStatusLog as documentstatuslog } from './DocStatusLog';
+import { StaffNotification as staffnotification } from './StaffNotification';
 
 export const Models: { [key: string]: typeof AppData } = {
   user,
@@ -52,4 +54,6 @@ export const Models: { [key: string]: typeof AppData } = {
   organization,
   event,
   activity,
+  documentstatuslog,
+  staffnotification,
 };

@@ -6,6 +6,7 @@ import {
 } from '../../error-handler/RequestError';
 
 import { Document as Doc } from '../../models/Document';
+import { DocumentStatusLog } from '../../models/DocStatusLog';
 
 export const createDocument: RequestHandler = async (req, res, next) => {
   try {
@@ -20,7 +21,17 @@ export const createDocument: RequestHandler = async (req, res, next) => {
     req.body.createdAt = new Date();
 
     const newDoc = new Doc(req.body);
-    const savedDoc = newDoc.save();
+    const savedDoc = await newDoc.save();
+
+    const log = new DocumentStatusLog({
+      documentId: savedDoc._id,
+      status: req.body.status,
+      msg: `Status changed to ${req.body.status}`,
+      createdAt: new Date(),
+      createdBy: res.locals.user.userId,
+    });
+
+    await log.save();
 
     return res.status(201).send({
       success: true,
