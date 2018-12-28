@@ -13,13 +13,16 @@ export const docUpdateSchema = Joi.object().keys({
   recordType: Joi.string().optional(),
   docTitle: Joi.string().optional(),
   docUrl: Joi.string().optional(),
+  status: Joi.string()
+    .valid('open', 'close')
+    .optional(),
 
   docCategory: Joi.string().optional(),
   docStage: Joi.string().optional(),
   docSummary: Joi.string().optional(),
 
   documentDate: Joi.string().optional(),
-  pageCount: Joi.string().optional(),
+  pageCount: Joi.number().optional(),
   secretary: Joi.string().optional(),
   sentBy: Joi.string().optional(),
   sentByOrg: Joi.string().optional(),
