@@ -53,4 +53,5 @@ export const Models: { [key: string]: typeof AppData } = {
   organization,
   event,
   activity,
+  documentstatuslog,
 };
