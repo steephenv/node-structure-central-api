@@ -20,6 +20,7 @@ import { taskAddSchema } from './create-task-rule';
 import { contactTypeAddSchema } from './create-contacttype-rule';
 import { orgAddSchema } from './create-organization-rule';
 import { eventAddSchema } from './create-event-rule';
+import { dispatchAddSchema } from './create-dispatch-rule';
 
 export const schemaRules: any = {
   'user-save': { opn: { allowUnknown: true }, schema: arraySchema },
@@ -82,5 +83,9 @@ export const schemaRules: any = {
   'event-save': {
     opn: { allowUnknown: true },
     schema: eventAddSchema,
+  },
+  'dispatch-save': {
+    opn: { allowUnknown: true },
+    schema: dispatchAddSchema,
   },
 };
