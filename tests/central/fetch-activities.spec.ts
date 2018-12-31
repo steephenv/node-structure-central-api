@@ -24,28 +24,24 @@ beforeAll(done => {
 });
 
 describe('Test for list activities  ===> ', () => {
-  it(
-    'List docs',
-    done => {
-      got('http://localhost:7000/v1/central/fetch', {
-        method: 'POST',
-        headers: {
-          'X-Requested-With': 'XMLHttpRequest',
-          Authorization: `Bearer ${token}`,
+  it('List docs', done => {
+    got('http://localhost:7000/v1/central/fetch', {
+      method: 'POST',
+      headers: {
+        'X-Requested-With': 'XMLHttpRequest',
+        Authorization: `Bearer ${token}`,
+      },
+      json: true,
+      body: {
+        collection: 'activity',
+        condition: {
+          createdAt: { __lte: new Date(), __gte: new Date() },
         },
-        json: true,
-        body: {
-          collection: 'activity',
-          condition: {
-            createdAt: { __lte: new Date(), __gte: new Date() },
-          },
-        },
-      })
-        .then(() => done())
-        .catch(err => {
-          throw err;
-        });
-    },
-    15000,
-  );
+      },
+    })
+      .then(() => done())
+      .catch(err => {
+        throw err;
+      });
+  }, 15000);
 });

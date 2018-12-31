@@ -8,9 +8,14 @@ import {
   RequestErrorType,
 } from '../../error-handler/RequestError';
 
+import { CaseDetails } from '../../models/Case';
 const shelfDataTemplate = path.join(
   __dirname,
   '../../utils/assets/shelf-data.ejs',
+);
+const docDataTemplate = path.join(
+  __dirname,
+  '../../utils/assets/document-data.ejs',
 );
 
 function getHtmlString(newEjsPath: string, dataObj: any) {
@@ -31,6 +36,11 @@ export const generatePdf: RequestHandler = async (req, res, next) => {
     if (req.body.type === 'shelf') {
       const pdfData = req.body.data.length ? req.body.data[0] : {};
       htmlString = await getHtmlString(shelfDataTemplate, { pdfData });
+    } else if (req.body.type === 'documentList') {
+      const pdfData = await CaseDetails.find(req.body.condition)
+        .populate('caseStaffs.attorney typeOfCase caseStatus')
+        .exec();
+      htmlString = await getHtmlString(docDataTemplate, { pdfData });
     } else {
       return next(
         new RequestError(RequestErrorType.BAD_REQUEST, 'No such file present'),

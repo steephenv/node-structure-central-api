@@ -24,21 +24,17 @@ beforeAll(done => {
 });
 
 describe('Test finding case status percent  ===> ', () => {
-  it(
-    'case percent',
-    done => {
-      got('http://localhost:7000/v1/case/status-count', {
-        method: 'GET',
-        headers: {
-          'X-Requested-With': 'XMLHttpRequest',
-          Authorization: `Bearer ${token}`,
-        },
-      })
-        .then(() => done())
-        .catch(err => {
-          throw err;
-        });
-    },
-    15000,
-  );
+  it('case percent', done => {
+    got('http://localhost:7000/v1/case/status-count', {
+      method: 'GET',
+      headers: {
+        'X-Requested-With': 'XMLHttpRequest',
+        Authorization: `Bearer ${token}`,
+      },
+    })
+      .then(() => done())
+      .catch(err => {
+        throw err;
+      });
+  }, 15000);
 });
