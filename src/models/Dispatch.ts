@@ -45,6 +45,10 @@ export const definitions = {
   updatedAt: {
     type: Date,
   },
+  createdBy: {
+    type: Schema.Types.ObjectId,
+    ref: 'User',
+  },
 };
 
 const dispatchSchema: Schema = new Schema(definitions);
