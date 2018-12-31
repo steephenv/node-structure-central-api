@@ -12,7 +12,7 @@ import { CaseHearing } from '../../models/CaseHearing';
 import { CaseDetails } from '../../models/Case';
 import { User } from '../../models/User';
 
-import * as lme from 'lme';
+// import * as lme from 'lme';
 
 export const fetchHearings: RequestHandler = async (req, res, next) => {
   try {
@@ -113,7 +113,7 @@ export const fetchHearings: RequestHandler = async (req, res, next) => {
       }
     }
 
-    lme.i(condition);
+    // lme.i(condition);
 
     const hearingData = await CaseHearing.find(condition)
       .populate([
@@ -134,7 +134,7 @@ export const fetchHearings: RequestHandler = async (req, res, next) => {
 
     const countOfRecords = await CaseHearing.countDocuments(condition).exec();
 
-    lme.i(hearingData.length);
+    // lme.i(hearingData.length);
 
     return res.send({
       success: true,
