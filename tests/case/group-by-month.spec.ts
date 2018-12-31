@@ -24,21 +24,17 @@ beforeAll(done => {
 });
 
 describe('Test finding month wise case list  ===> ', () => {
-  it(
-    'month wise case list',
-    done => {
-      got('http://localhost:7000/v1/case/group-by-month', {
-        method: 'GET',
-        headers: {
-          'X-Requested-With': 'XMLHttpRequest',
-          Authorization: `Bearer ${token}`,
-        },
-      })
-        .then(() => done())
-        .catch(err => {
-          throw err;
-        });
-    },
-    15000,
-  );
+  it('month wise case list', done => {
+    got('http://localhost:7000/v1/case/group-by-month', {
+      method: 'GET',
+      headers: {
+        'X-Requested-With': 'XMLHttpRequest',
+        Authorization: `Bearer ${token}`,
+      },
+    })
+      .then(() => done())
+      .catch(err => {
+        throw err;
+      });
+  }, 15000);
 });
