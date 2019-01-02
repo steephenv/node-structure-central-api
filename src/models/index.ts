@@ -28,6 +28,7 @@ import { Activity as activity } from './Activity';
 import { DocumentStatusLog as documentstatuslog } from './DocStatusLog';
 import { StaffNotification as staffnotification } from './StaffNotification';
 import { CaseHearing as casehearing } from './CaseHearing';
+import { Dispatch as dispatch } from './Dispatch';
 
 export const Models: { [key: string]: typeof AppData } = {
   user,
@@ -58,4 +59,5 @@ export const Models: { [key: string]: typeof AppData } = {
   documentstatuslog,
   staffnotification,
   casehearing,
+  dispatch,
 };
