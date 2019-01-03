@@ -7,11 +7,7 @@ import * as logger from 'morgan';
 import * as path from 'path';
 import * as lme from 'lme';
 import * as favicon from 'serve-favicon';
-import {
-  IssueMaker,
-  ExpressRequestError,
-  ExpressRequestErrorType,
-} from 'issue-maker';
+import { ExpressRequestError, ExpressRequestErrorType } from 'issue-maker';
 
 // import { attachTokenData } from './access-control/attach-token-data';
 import { rootAccess } from './access-control/root-access';
@@ -98,12 +94,12 @@ app.use((req, res, next) => {
   next(err);
 });
 
-const gitlabIssue = new IssueMaker({
-  service: getConfig('issue-maker.service'),
-  endPoint: getConfig('issue-maker.endPoint'),
-  privateToken: getConfig('issue-maker.privateToken'),
-  projectId: getConfig('issue-maker.projectId'),
-});
+// const gitlabIssue = new IssueMaker({
+//   service: getConfig('issue-maker.service'),
+//   endPoint: getConfig('issue-maker.endPoint'),
+//   privateToken: getConfig('issue-maker.privateToken'),
+//   projectId: getConfig('issue-maker.projectId'),
+// });
 
 // error handler
 const requestErrHandler: express.ErrorRequestHandler = async (
@@ -123,16 +119,16 @@ const requestErrHandler: express.ErrorRequestHandler = async (
     process.env.NODE_ENV !== 'development' &&
     process.env.TESTING !== 'true'
   ) {
-    try {
-      await gitlabIssue.expressReportError(req, err, {
-        labels: 'by-issue-maker',
-        resLocals: res.locals,
-        databaseHost: getConfig('database.url'),
-        databaseName: '',
-      });
-    } catch (err) {
-      console.log('ERR: some error occurred while reporting issue', err); //tslint:disable-line
-    }
+    // try {
+    //   await gitlabIssue.expressReportError(req, err, {
+    //     labels: 'by-issue-maker',
+    //     resLocals: res.locals,
+    //     databaseHost: getConfig('database.url'),
+    //     databaseName: '',
+    //   });
+    // } catch (err) {
+    //   console.log('ERR: some error occurred while reporting issue', err); //tslint:disable-line
+    // }
   }
 
   if (req.xhr) {

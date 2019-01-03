@@ -1,15 +1,15 @@
-# STAGING
-# This is given for client for their testing purposes
+# # STAGING
+# # This is given for client for their testing purposes
 
-app:
-  logging: true
-  morgan: true
-  port: 4243
-  docs: false
+# app:
+#   logging: true
+#   morgan: true
+#   port: 4243
+#   docs: false
 
-database:
-  url: mongodb://cma_user:hGFhju4ghf2GFD1jhgHGPvy62F@192.168.200.20:27017/cma-qa_db
+# database:
+#   url: mongodb://cma_user:hGFhju4ghf2GFD1jhgHGPvy62F@192.168.200.20:27017/cma-qa_db
 
-frontEnd:
-  web:
-    baseUrl: 'https://demo.capricorns.io'
+# frontEnd:
+#   web:
+#     baseUrl: 'https://demo.capricorns.io'

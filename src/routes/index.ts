@@ -4,9 +4,9 @@ import { get as getConfig } from 'config';
 import { centralApis } from './central';
 import { user } from './user';
 import { utils } from './utils';
-import { getIslands } from './get-islands';
-import { caseRouter } from './case';
-import { docs } from './document';
+// import { getIslands } from './get-islands';
+// import { caseRouter } from './case';
+// import { docs } from './document';
 
 import { attachTokenData } from '../access-control/attach-token-data';
 // swagger
@@ -18,9 +18,9 @@ export const apis = express.Router();
 apis.use('/central', attachTokenData, centralApis);
 apis.use('/user', user);
 apis.use('/utils', utils);
-apis.get('/get-islands', getIslands);
-apis.use('/case', attachTokenData, caseRouter);
-apis.use('/documents', attachTokenData, docs);
+// apis.get('/get-islands', getIslands);
+// apis.use('/case', attachTokenData, caseRouter);
+// apis.use('/documents', attachTokenData, docs);
 
 // load docs if requested
 if (getConfig('app.docs')) {

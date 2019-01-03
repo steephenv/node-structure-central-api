@@ -1,14 +1,14 @@
-# development beta in cloud
-# used for internal use
-app: 
-  port: 4233
-  docs: true
-  morgan: true
-database:
-  url: mongodb://cma_user:hGFhju4ghf2GFD1jhgHGPvy62F@192.168.200.20:27017/cma_db
+# # development beta in cloud
+# # used for internal use
+# app: 
+#   port: 4233
+#   docs: true
+#   morgan: true
+# database:
+#   url: mongodb://cma_user:hGFhju4ghf2GFD1jhgHGPvy62F@192.168.200.20:27017/cma_db
 
-docsUrl: "api-cma-qa.cubettech.in"
+# docsUrl: "api-cma-qa.cubettech.in"
 
-frontEnd:
-  web:
-    baseUrl: 'https://dev-miwago.cubettech.in'
+# frontEnd:
+#   web:
+#     baseUrl: 'https://dev-miwago.cubettech.in'
